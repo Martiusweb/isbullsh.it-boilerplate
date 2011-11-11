@@ -292,6 +292,8 @@ div#main {
 div#main > header {
   border-bottom: 1px #CCCCCC solid;
   background: #EAECEF;
+  color: #333333;
+  text-shadow: 1px 1px #FFFFFF;
 }
 div#main > footer {
   border-top: 1px #CCCCCC solid;
@@ -329,11 +331,35 @@ body > header a:link, body > header a:visited, body > header a:active {
 div#main > header {
   font-size: 1.6em;
 }
+div#main > section#content {
+  line-height: 1.5em;
+}
 
 /** Titles */
 div#main h1, div#main h2, div#main h3, div#main h4, div#main h5, div#main h6 {
-  font-weight: normal;
   letter-spacing: -0.025em;
+}
+div#main > section#content h1 {
+  font-size: 2em;
+  font-weight: normal;
+}
+div#main > section#content h2 {
+  font-size: 1.8em;
+  font-weight: normal;
+}
+div#main > section#content h3 {
+  font-size: 1.6em;
+  font-weight: normal;
+}
+div#main > section#content h4 {
+  font-size: 1.4em;
+  font-weight: normal;
+}
+div#main > section#content h5 {
+  font-size: 1.2em;
+}
+div#main > section#content h6 {
+  font-size: 1em;
 }
 
 /* Sexy effects */

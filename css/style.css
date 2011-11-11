@@ -35,14 +35,14 @@ body { margin: 0; font-size: 13px; line-height: 1.231; }
 
 body, button, input, select, textarea { font-family: sans-serif; color: #222; }
 
-/* 
+/*
  * These selection declarations have to be separate
  * No text-shadow: twitter.com/miketaylr/status/12228805301
  * Also: hot pink!
  */
 
-::-moz-selection { background: #fe57a1; color: #fff; text-shadow: none; }
-::selection { background: #fe57a1; color: #fff; text-shadow: none; }
+::-moz-selection { background: #2F3742; color: #fff; text-shadow: none; }
+::selection { background: #2F3742; color: #fff; text-shadow: none; }
 
 
 /* =============================================================================
@@ -113,7 +113,7 @@ nav ul, nav ol { list-style: none; margin: 0; padding: 0; }
 img { border: 0; -ms-interpolation-mode: bicubic; }
 
 /*
- * Correct overflow displayed oddly in IE9 
+ * Correct overflow displayed oddly in IE9
  */
 
 svg:not(:root) {
@@ -198,15 +198,151 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 /* =============================================================================
    Primary styles
-   Author: 
+   Author: Martin Richard
    ========================================================================== */
 
+/* Wireframing */
+/** Header */
+body > header {
+  padding: 0 2em;
+}
+body > header > div > h1 > a {
+  position: relative;
+  top: 0.2em;
+}
+body > header > div {
+  display: table;
+  width: 100%;
+}
+body > header > div > * {
+  display: table-cell;
+}
+body > header > div > nav > ul {
+  list-style: none;
+  text-align: right;
+  letter-spacing: -1em;
+}
+body > header > div > nav > ul > li {
+  display: inline-block;
+  letter-spacing: 0em;
+}
+body > header > div > nav > ul > li > a {
+  display: inline-block;
+  padding: 1em 2em;
+}
 
+/** Main container */
+div#main {
+  margin: 5em 10em 2em 10em;
+}
+div#main > header {
+  padding: 1em 2em;
+}
+div#main > header > h2 {
+  margin: 0;
+}
+div#main > footer {
+  text-align: center;
+  padding: 0.1em;
+}
 
+/** Easter egg */
+body > p {
+  text-align: center;
+}
 
+/* Colors and page styles */
+body {
+  background: #F6F6F6;
+}
 
+/** Header */
+/*
+ * A3A177
+ * 505254
+*/
+body > header {
+  background: rgba(252, 241, 96, 0.5); /* #FCF160 */
+  border-bottom: 1px #A3A177 solid;
+}
+body > header > div > nav > ul {
+  border-right: 1px #A3A177 dotted;
+}
+body > header > div > nav > ul > li {
+  border-left: 1px #A3A177 dotted;
+}
+body > header > div > nav > ul > li > a:hover {
+  background: #FCF160;
+}
+body > header > div > h1 > a:hover {
+  text-shadow: 0 0 5px #A3A177;
+  color: #2F3742;
+}
+body > header > div > h1 > a > .tag {
+  color: #CC0000;
+}
 
+/** Main container */
+div#main {
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+  background: #FFFFFF;
+}
+div#main > header {
+  border-bottom: 1px #CCCCCC solid;
+  background: #EAECEF;
+}
+div#main > footer {
+  border-top: 1px #CCCCCC solid;
+  background: rgba(163, 161, 119, 0.25);
+  color: #666666;
+  text-shadow: 1px 1px #FFFFFF;
+}
 
+/** Easter egg */
+body > p {
+  color: #DDD;
+  text-shadow: 1px 1px #FFF;
+}
+
+/* Typo and styles */
+body {
+  font-family: Georgia,"Times New Roman",serif;
+}
+body > header > div > nav {
+  font-family: Helvetica,Arial,sans-serif;
+}
+
+/** Header */
+body > header > div > h1 {
+  font-weight: normal;
+  letter-spacing: -0.025em;
+}
+body > header a:link, body > header a:visited, body > header a:active {
+  text-decoration: none;
+  color: #10101C;
+  text-shadow: 1px 1px #FFFFFF;
+}
+
+/** Main container */
+div#main > header {
+  font-size: 1.6em;
+}
+
+/** Titles */
+div#main h1, div#main h2, div#main h3, div#main h4, div#main h5, div#main h6 {
+  font-weight: normal;
+  letter-spacing: -0.025em;
+}
+
+/* Sexy effects */
+body > header a {
+  transition: background 400ms ease;
+  -moz-transition: background 400ms ease;
+}
+body > header > div > h1 > a {
+  transition: text-shadow 400ms ease, color 400ms ease;
+  -moz-transition: text-shadow 400ms ease, color 400ms ease;
+}
 
 /* =============================================================================
    Non-semantic helper classes

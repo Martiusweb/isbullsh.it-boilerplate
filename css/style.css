@@ -204,7 +204,9 @@ table { border-collapse: collapse; border-spacing: 0; }
 /* Wireframing */
 /** Header */
 body > header {
-  padding: 0 2em;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 body > header > div > h1 > a {
   position: relative;
@@ -212,7 +214,8 @@ body > header > div > h1 > a {
 }
 body > header > div {
   display: table;
-  width: 100%;
+  width: 90%;
+  margin: 0 auto;
 }
 body > header > div > * {
   display: table-cell;
@@ -245,6 +248,9 @@ div#main > footer {
   text-align: center;
   padding: 0.1em;
 }
+div#main > section#content {
+  padding: 0 1em;
+}
 
 /** Easter egg */
 body > p {
@@ -257,10 +263,6 @@ body {
 }
 
 /** Header */
-/*
- * A3A177
- * 505254
-*/
 body > header {
   background: rgba(252, 241, 96, 0.5); /* #FCF160 */
   border-bottom: 1px #A3A177 solid;

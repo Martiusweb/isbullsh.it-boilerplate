@@ -274,11 +274,18 @@ body > header > div > nav > ul > li {
   border-left: 1px #A3A177 dotted;
 }
 body > header > div > nav > ul > li > a:hover {
-  background: #FCF160;
+  background: #FCF19A !important;
+}
+body > header > div > nav > ul > li > a.current {
+  background: rgba(255, 255, 255, 0.2);
+  font-weight: bold;
 }
 body > header > div > h1 > a:hover {
-  text-shadow: 0 0 5px #A3A177;
-  color: #2F3742;
+  text-shadow: 0px 0px 1px #FFFFFF !important;
+}
+body > header > div > h1 > a:hover {
+  text-shadow: 0px 0px 1px #10101C;
+  color: #666;
 }
 body > header > div > h1 > a > .tag {
   color: #CC0000;

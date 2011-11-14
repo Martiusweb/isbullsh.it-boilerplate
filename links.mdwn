@@ -1,0 +1,12 @@
+---
+title: Links
+permalink: /links/
+layout: base
+---
+
+Good links we like.
+
+ * [ItIsOld](http://isitold.com) : Check if your news is old
+
+ * [Hacker News](http://http://news.ycombinator.com) : Your ultimate source of
+   information.

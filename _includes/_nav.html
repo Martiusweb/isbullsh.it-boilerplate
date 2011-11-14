@@ -1,7 +1,8 @@
+{% capture parsed_url %}{{page.url|remove_first:'/'|truncate:5,''}}{% endcapture %}
 <ul>
-  <li><a class="current" href="#">Home</a></li>
-  <li><a href="#">Archives</a></li>
-  <li><a href="#">Links</a></li>
-  <li><a href="#">Contact</a></li>
-  <li><a href="#">About</a></li>
+  <li><a href="/"{%if parsed_url == "index" %} class="current"{% endif %}>Home</a></li>
+  <li><a href="/archives/"{%if parsed_url == "archives" %} class="current"{% endif %}>Archives</a></li>
+  <li><a href="/links/"{%if parsed_url == "links" %} class="current"{% endif %}>Links</a></li>
+  <li><a href="/contact/"{%if parsed_url == "contact" %} class="current"{% endif %}>Contact</a></li>
+  <li><a href="/about/"{%if parsed_url == "about" %} class="current"{% endif %}>About</a></li>
 </ul>

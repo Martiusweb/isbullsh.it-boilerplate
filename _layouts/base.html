@@ -1,0 +1,40 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>{{page.title}} - *.isBullsh.it</title>
+  <meta name="description" content="{{page.description}}">
+  <meta name="author" content="{% if page.author %}{{page.author}}{% else %}Balto, Martin, Nical, Paul, Tibal{% endif %}">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/libs/modernizr-2.0.6.min.js"></script>
+</head>
+
+<body{% if page.class %} class="{{page.class}}"{% endif %}>
+<header>
+  <div>
+    <h1><a href="#"><span class="tag">*</span>.isBullsh.it</a></h1>
+    <nav>
+      {% include _nav.html %}
+    </nav>
+  </div>
+</header>
+
+<div id="main" role="main">
+  <header>
+    <h2>{{page.title}}</h2>
+  </header>
+  <section id="content">
+  {{content}}
+  </section>
+	<footer>
+  {% include _footer.html %}
+	</footer>
+</div>
+<p>Wow! There's something here!</p>
+</body>
+</html>

@@ -338,35 +338,57 @@ body > header a:link, body > header a:visited, body > header a:active {
 div#main > header {
   font-size: 1.6em;
 }
-div#main > section#content {
+#content {
   line-height: 1.5em;
+  font-size: 1.1em;
 }
 
 /** Titles */
 div#main h1, div#main h2, div#main h3, div#main h4, div#main h5, div#main h6 {
   letter-spacing: -0.025em;
 }
-div#main > section#content h1 {
+#content h1 {
   font-size: 2em;
   font-weight: normal;
 }
-div#main > section#content h2 {
+#content h2 {
   font-size: 1.8em;
   font-weight: normal;
 }
-div#main > section#content h3 {
+#content h3 {
   font-size: 1.6em;
   font-weight: normal;
 }
-div#main > section#content h4 {
+#content h4 {
   font-size: 1.4em;
   font-weight: normal;
 }
-div#main > section#content h5 {
+#content h5 {
   font-size: 1.2em;
 }
-div#main > section#content h6 {
+#content h6 {
   font-size: 1em;
+}
+
+/** Classes and effects */
+#content pre, #content code {
+  font-family: Monaco, monospace;
+}
+#content pre {
+  line-height: 1.2em;
+}
+#content a:link, #content a:active, #content a:visited, #content a:hover {
+  text-shadow: 1px 1px #DDDDDD;
+}
+#content a:link, #content a:active, #content a:visited {
+  background: rgba(252, 241, 96, 0.2);
+  /*
+  text-decoration: none;
+  border-bottom: 1px #333333 dotted;
+  */
+}
+#content a:hover {
+  background: rgba(252, 241, 96, 0.5);
 }
 
 /* Sexy effects */
@@ -377,6 +399,14 @@ body > header a {
 body > header > div > h1 > a {
   transition: text-shadow 400ms ease, color 400ms ease;
   -moz-transition: text-shadow 400ms ease, color 400ms ease;
+  -webkit-transition: text-shadow 400ms ease, color 400ms ease;
+  -o-transition: text-shadow 400ms ease, color 400ms ease;
+}
+#content a {
+  transition: background 250ms ease;
+  -moz-transition: background 250ms ease;
+  -webkit-transition: background 250ms ease;
+  -o-transition: background 250ms ease;
 }
 
 /* =============================================================================

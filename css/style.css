@@ -414,6 +414,12 @@ body > header > div > h1 > a {
    Please define your styles before this section.
    ========================================================================== */
 
+/* text obfuscation */
+.obf {
+  direction: rtl;
+  unicode-bidi: bidi-override;
+}
+
 /* For image replacement */
 .ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
 .ir br { display: none; }

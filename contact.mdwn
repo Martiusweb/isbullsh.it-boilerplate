@@ -1,0 +1,18 @@
+---
+title: contact
+permalink: /contact/
+layout: base
+---
+
+# Contact
+
+ * [@padenot](https://twitter.com/padenot/) && <span class="obf">xc.luap@luap</span>
+
+ * Balto: [@BaltoRouberol](https://twitter.com/BaltoRouberol/) &&  <span
+   class="obf">xc.razahtlab@b</span> && [Personal page](http://balthazar.cx)
+
+ * Hi, I'm Martin. I blog at [martiusweb.net](http://www.martiusweb.net), tweet
+   as [@MartiusWeb](https://twitter.com/MartiusWeb) and you can e-mail me  at <span
+   class="obf">ten.bewsuitram@suitram</span>.
+
+ * Insert your infos here

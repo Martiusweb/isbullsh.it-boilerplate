@@ -5,5 +5,7 @@ class: list
 
 {{content}}
 <ol>
-  <li>Article</li>
+  {% for post in site.posts %}
+  <li><a href="{{post.url}}">{{post.title}}</a></li>
+  {% endfor %}
 </ol>

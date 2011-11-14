@@ -27,3 +27,5 @@ of this website) under the following conditions:
  * If you alter, transform, or build upon this work, you may distribute the
    resulting work only under the same or similar license to this one.
 
+The beer favicon is licensed under [GPL v2](http://www.gnu.org/licenses/gpl-2.0.html),
+borrowed from Pidgin and designed by [Hylke](http://www.bomahy.nl/).

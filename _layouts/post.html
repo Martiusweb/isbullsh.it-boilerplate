@@ -6,8 +6,9 @@ class: post
 <div id="totoc"><a href="#main">Up!</a></div>
 <section id="content">
   <div class="meta">
+    <h3>About the article</h3>
     <ul>
-      <li>Article written by <a href="/contact/#{{page.byline|downcase}}">{{page.byline}}</a></li>
+      <li>Written by <a href="/contact/#{{page.byline|downcase}}">{{page.byline}}</a></li>
       <li>Published on {{page.date|date_to_string}}</li>
       {% if page.tags %}
       <li>Tags:
@@ -18,27 +19,38 @@ class: post
       {% endif %}
     </ul>
   </div>
-  {{content}}
+  {% if site.related_posts %}
+  <div class="related-posts">
+    <h3>Related posts</h3>
+    <ul>
+      {% for post in site.related_posts limit:site.related_limit %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+  {{ content }}
 </section>
 {% if page.previous or page.next %}
 <aside>
-<div class="nextprev">
-  {% if page.previous %}
-  <a class="prev" href="{{ page.previous.url }}"><span>{{ page.previous.title }}</span><br/>&larr; Previous Entry</a>
+  <div class="nextprev">
+    {% if page.previous %}
+    <a class="prev" href="{{ page.previous.url }}"><span>{{ page.previous.title }}</span><br/>&larr; Previous Entry</a>
+    {% endif %}
+    {% if page.next %}
+    <a class="next" href="{{ page.next.url }}"><span>{{ page.next.title }}</span><br/>Next Entry &rarr;</a>
+    {% endif %}
+  </div>
   {% endif %}
-  {% if page.next %}
-  <a class="next" href="{{ page.next.url }}"><span>{{ page.next.title }}</span><br/>Next Entry &rarr;</a>
-  {% endif %}
-</div>
-{% endif %}
-{% if site.related_posts %}
-<div class="related-posts">
-  <h3 class="uppercase-title">Related Posts</h3>
-  <ul>
-    {% for post in site.related_posts limit:site.related_limit %}
-    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
-</div>
 </aside>
-{% endif %}
+<!-- {% if site.related_posts %} -->
+<!-- <div class="related-posts"> -->
+<!--   <h3 class="uppercase-title">Related Posts</h3> -->
+<!--   <ul> -->
+<!--     {% for post in site.related_posts limit:site.related_limit %} -->
+<!--     <li><a href="{{ post.url }}">{{ post.title }}</a></li> -->
+<!--     {% endfor %} -->
+<!--   </ul> -->
+<!-- </div> -->
+<!-- </aside> -->
+<!-- {% endif %} -->

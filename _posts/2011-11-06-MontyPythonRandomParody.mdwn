@@ -9,8 +9,6 @@ layout: post
 published: true
 ---
 
-__Table of contents__
-
 - stripped
 {:toc}
 

@@ -6,9 +6,8 @@ layout: base
 
 Good links we like.
 
- * [ItIsOld](http://isitold.com) : Check if your news is old
-
+ * [ItIsOld](http://isitold.com) : Check if your news is old before sending it to your friends
  * [Hacker News](http://http://news.ycombinator.com) : Your ultimate source of
    information.
-
  * [InstaCSS](http://instacss.com) : Gimmeh teh CSS docs
+ * [Distrowatch](http://distrowatch.com/) : But the fun back into computing: use Linux, BSD.

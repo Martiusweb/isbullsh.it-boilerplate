@@ -259,7 +259,7 @@ body > p {
 }
 
 /** Post page */
-section#content > .meta, section#content > #markdown-toc {
+section#content > .meta, section#content > #markdown-toc, section#content > div.related-posts{
   width: 30%;
   float: right;
   padding: 1em 1em 1em 40px;
@@ -268,7 +268,7 @@ section#content > .meta, section#content > #markdown-toc {
   bottom: 1em;
   left: 1em;
 }
-section#content > #markdown-toc {
+section#content > #markdown-toc, section#content > div.related-posts {
   clear: both;
 }
 div#main > #totoc {
@@ -336,13 +336,13 @@ body > p {
 }
 
 /** Post page */
-section#content > .meta, section#content > #markdown-toc {
+section#content > .meta, section#content > #markdown-toc, section#content > div.related-posts {
   border-left: 1px #CCCCCC solid;
   background: rgba(163, 161, 119, 0.25);/* #EAECEF;*/
   color: #333333;
   box-shadow: 0 1px 0 #FFFFFF inset;
 }
-section#content > .meta a, section#content > #markdown-toc a {
+section#content > .meta a, section#content > #markdown-toc a, section#content > div.related-posts a {
   background: none;
 }
 section#content > .meta {
@@ -350,6 +350,9 @@ section#content > .meta {
 }
 section#content > #markdown-toc {
   border-bottom: 1px #CCCCCC solid;
+}
+section#content > div.related-posts {
+    border-bottom: 1px #CCCCCC solid;
 }
 #totoc a {
   color: #000000;

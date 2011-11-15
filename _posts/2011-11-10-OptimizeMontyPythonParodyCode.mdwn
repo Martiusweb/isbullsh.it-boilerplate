@@ -1,0 +1,189 @@
+---
+title: Optimization of the Monty Python parody code
+tags:
+  - Python
+  - Profiling
+  - Optimization
+author: Balto
+layout: post
+published: true
+---
+
+__Table of contents__
+
+- stripped
+{:toc}
+
+
+In this post, we'll see how the program proposed in my [previous post](http://isbullsh.it/2011/11/MontyPythonRandomParody/) can be optimized in term of execution time. The code can be found the project [GitHub repository](https://github.com/BaltoRouberol/Generate-Monty-Pyhon-Dialog). For those who haven't read the first article but are interested in code optimization, i'd then advise you to [read it first](http://isbullsh.it/2011/11/MontyPythonRandomParody/), to understand the causes of the problem.
+
+# What is the problem?
+
+My code is slow. It takes too much time to run : around 45 seconds.
+
+# Profiling : Let's find the bottlenecks !
+
+To identify the bottlenecks in our code, we can take advantage of the excellent <code>profile</code> python module. (More information [here](http://docs.python.org/library/profile.html))
+
+Let's run our code using <code>profile</code> :
+{% highlight bash %}$ python -m cProfile -o proba.prof probabilities.py ../data/data.txt{% endhighlight %}
+
+This command will create a <code>proba.prof</code> file containing the profiling results. We can now read these results using the <code>pstats</code> module.
+{% highlight python %}
+>>> import pstats  
+>>> p = pstats.Stats("proba.prof")  
+>>> p.sort_stats("cumulative").print_stats(10)  
+{% endhighlight %}
+
+These commands will result into an output listing the 10 most time-consuming functions.
+  
+       5931126 function calls (5801827 primitive calls) in 48.691 CPU seconds  
+  
+       Ordered by: cumulative time  
+       List reduced from 80 to 10 due to restriction <10>  
+  
+       ncalls  tottime  percall  cumtime  percall filename:lineno(function)  
+            1    0.000    0.000   48.691   48.691 <string>:1(<module>)  
+            1    0.001    0.001   48.691   48.691 {execfile}  
+            1    0.005    0.005   48.690   48.690 probabilities.py:13(<module>)  
+            1    1.177    1.177   48.657   48.657 probabilities.py:33(empirical_entropy_rate)  
+      1617584    1.818    0.000   45.773    0.000 probabilities.py:88(conditional_empirical_proba)  
+      1617584    1.518    0.000   43.955    0.000 probabilities.py:112(n_b_ak)  
+      1638868   43.075    0.000   43.075    0.000 {method 'count' of 'str' objects}    
+            1    0.009    0.009    1.050    1.050 /usr/lib/python2.6/pickle.py:1361(dump)  
+            1    0.000    0.000    1.041    1.041 /usr/lib/python2.6/pickle.py:220(dump)  
+      86729/1    0.275    0.000    1.041    1.041 /usr/lib/python2.6/pickle.py:269(save)"
+
+It seems that 90% of the execution time is spent in the <code>str.count()</code> method. How come, I thought that this method was written in C and batshit optimized? Well, yes. We can see that <code>str.count()</code> takes 0.000s / call. But the thing is, we call it 1638868 times...
+
+We can visualize these profiling results using a nice tool written in Java: RunSnakeRun.
+To use it, type : 
+{% highlight bash %}
+$ runsnake proba.prof
+{% endhighlight %} 
+
+to generate a nice output like this (sorry for the flashy green >_<) :
+
+![runsnakerun output](/img/runsnake_profile.png)
+
+We hence can have a (rather) nice graphic view of the profile results previously obtained with the profile module.
+
+# Line profiling
+
+This kind of profiling only gives us the most time consuming functions. We could use line profiling to **locate the most time consuming lines**. To do that, we use the [kernprof.py](http://packages.python.org/line_profiler/) line profiler.
+We need to add the <code>@profile</code> decorator "on top" of the functions we want to profile.
+
+We then type 
+{% highlight bash %}
+$ python kerprof.py -l -v probabilities_line_profile.py ../data/data.txt
+{% endhighlight %}
+
+This gives us the following output, for the <code>n_b_ak</code> function:
+
+    File: probabilities_line_profile.py
+    Function: n_b_ak at line 113
+    Total time: 47.6636 s
+
+    Line #      Hits         Time  Per Hit   % Time  Line Contents
+    ==============================================================
+       113                                           @profile
+       114                                           def n_b_ak(chain, ak, symbol): # n_(b|a^k)
+       115                                               """
+       116                                               Given a string chain, returns the number of
+       117                                               times that a given symbol is found
+       118                                               right after a string ak inside the chain one
+       119                                               """
+       120                                           
+       121   1617584      1654535      1.0      3.5      if k != 0:
+       122   1617584     44478265     27.5     93.3    res = chain.count(ak+symbol)
+       123                                               else:
+       124                                                   # if k=0,the past has no influence
+       125                                                   res = chain.count(symbol)
+       126   1617584      1530820      0.9      3.2      return res
+
+The instruction <code>res = chain.count(ak+symbol)</code> takes **93% of the 47s runtime !** We've just found our bottlneck line. Hurray !
+
+# What about the algorithm ?
+
+Let's ask ourselves why do we use the <code>str.count()</code> method so intensively. For each distinct k-tuple (with k = 10) in the text, we count its number of occurences in the text, and then, for each symbol of the alphabet, we count the number of occurences of the concatenation of the k-tuple and the symbol. That makes a serious load of <code>str.count()</code> calls if you ask me. Well, 1638868 exactly...
+
+This algorithm does not scale well : if we increase the number of distinct k-tuples by one, we increase the number of count operations by 1+n, with n the number of symbols in the alphabet.
+
+We now have two choices :
+
+ * hack / change the algorithm
+ * try to optimize the code without changing the algorithm
+
+We will focus on the latter, and try to suggest some ideas of hacks at the end of the article.
+
+# Problem : <code>str.count()</code> is written in C !
+
+You know how people always brag about C being freakishly fast? They are right. But our problem is that <code>str.count()</code> is a Python built-in method ... written in C. If we'd rewrite the entire same program in C, we would then be optimizing the remaining 10%, but it would have no effect on the main algorithm. Shoot !
+
+It doesn't matter, I can still name some of the possible solutions available in the case of C re-writing would optimize the code:
+
+ * **Brute force C writing** (very bright side of the force, but can be painful for some people, and can take some time. D. Ritchie would be proud of you though.).
+
+ * **ctypes** : ctypes is a foreign function library for Python. It provides C compatible data types, and allows calling functions in DLLs or shared libraries. It can be used to wrap these libraries in pure Python. More info [here](http://docs.python.org/library/ctypes.html) and [here](http://wiki.python.org/moin/ctypes).
+
+ * **Shed Skin** : Shed Skin is an experimental compiler, that can translate pure, but implicitly statically typed Python (2.4-2.6) programs into optimized C++. It can generate stand-alone programs or extension modules that can be imported and used in larger Python programs.Warning: a restricted set of modules are supported. More info [here](http://code.google.com/p/shedskin/wiki/docs).
+
+ * **Cython** : (my personal favorite) Cython is a language that makes writing C extensions for the Python language as easy as Python itself. Cython is based on the well-known Pyrex, but supports more cutting edge functionality and optimizations.The Cython language is very close to the Python language, but Cython additionally supports calling C functions and declaring C types on variables and class attributes. This allows the compiler to generate very efficient C code from Cython code. More info [here](http://docs.cython.org/).
+
+# Parallel algorithm
+
+If you have a multi-core processor, you can take advantage of this architecture to dispatch workloads on every core. There is a lovely python module for that : <code>multiprocessing</code>.
+
+We could split the list of distinct k-tuples in several parts, and having each core to process them with our statisical approach. When the work of each core is done, we would gather the sub-results and store the final result.
+
+The code can be read [here](https://github.com/BaltoRouberol/Generate-Monty-Pyhon-Dialog/blob/master/py/probabilities_multi.py) but these are the important lines:
+
+{% highlight python %}
+nb_cores = multiprocessing.cpu_count()
+chunk_size = len(ak_chunks) / nb_cores
+
+# split the list of chunks into nb_cores sublists
+ak_chunks_split = [ak_chunks[i*chunk_size:(i+1)*chunk_size] for i in xrange(nb_cores-1)]
+
+ak_chunks_split.append(ak_chunks[(nb_cores-1)*chunk_size:]) # handle the case where last chunk is not of the same size    
+ 
+# we create a pool of processes
+p = multiprocessing.Pool()
+
+# we send the splited list of chunks to the pool
+po = p.map_async(multiprocess_proba_wrapper, ak_chunks_split)
+
+# Gather the results
+results = po.get()
+{% endhighlight %}
+All calculations are done in the multiprocess_proba_wrapper function.
+
+On my Quad-Core laptop, i get a nice 2.7 speedup : the program now only takes 17s. We could expect a x4 speedup, but multiprocessing implies communication between the cores, and thus a lot of overhead.
+
+# Can we do better ?
+
+I hope so. I am absolutely not satisfied with this result, because the algorithm doesn't scale well. I have an idea to strongly decrease the number of <code>count()</code> calls. Instead of calling <code>count(ak)</code> and <code>count(ak+symbol)</code> for all symbols in the alphabet, we could just extract the next symbol for each occurence of the ak string, playing with the <code>index()</code> method.
+
+{% highlight python %}
+i = chain.index(ak) # gives the position of the first occurence of ak in chain
+symbol = chain[i+k] # symbol after ak
+# increment counter in a dictionnary
+{% endhighlight %}
+
+We could then perform these operations until there is no <code>ak</code> occurence in <code>chain</code>.
+
+My point is that sometimes you can optimize your code, sometimes you must change the method if you want your program to be scalable.
+
+# Conclusions
+
+In this post, I have named some solutions that can be useful to optimize a Python code : **Ctypes, ShedSkin, Cython, multiprocessing** and we have seen some useful tools, **profile, line profiler kerprof.py and RunSnakeRun**.
+
+All problems are unique, and these techniques will not always be the solution. In our example, the bottleneck is the algorithm : eventhough the <code>str.count()</code> method runs fast, we just call it too much...We proposed a rather nice parallel solution, but if we multiply the size of the input by 2, the calculations then takes more than a minute ! We have to change/hack the algorithm for the program to be scalable to larger texts.
+
+# Thanks
+
+If all that was of any interest to you, you shoud (must !) then check out the outstanding paper written by [@ianozsvald](https://twitter.com/ianozsvald) : [High Performance Python](https://github.com/ianozsvald/EuroPython2011_HighPerformanceComputing/blob/master/docs/_build/latex/HighPerformancePythonfromTrainingatEuroPython2011.pdf?raw=true.). (All sources available on his [GitHub](https://github.com/ianozsvald/EuroPython2011_HighPerformanceComputing)) All techniques named in this article are more deeply covered. (This is how I first got into Python optimization, and it turns out I will soon work with him on the [StrongSteam project](strongsteam.com) =)
+
+Thanks Ian for all your advice on this project, and for all your time !
+
+PS : Do not hesitate to fork the git repo to propose improvements :)

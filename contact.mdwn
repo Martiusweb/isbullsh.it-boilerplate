@@ -1,7 +1,7 @@
 ---
 title: contact
 permalink: /contact/
-layout: base
+layout: content
 ---
 
 # Contact

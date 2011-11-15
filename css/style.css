@@ -351,6 +351,12 @@ section#content > .meta {
 section#content > #markdown-toc {
   border-bottom: 1px #CCCCCC solid;
 }
+section#content > #markdown-toc:before {
+  content: "Table of contents";
+  font-size: 1.6em;
+  font-weight: normal;
+  line-height: 2.8em;
+}
 section#content > div.related-posts {
     border-bottom: 1px #CCCCCC solid;
 }
@@ -388,7 +394,7 @@ div#main > header {
 }
 
 /** Titles */
-div#main h1, div#main h2, div#main h3, div#main h4, div#main h5, div#main h6 {
+div#main h1, div#main h2, div#main h3, div#main h4, div#main h5, div#main h6, section#content > #markdown-toc:before {
   letter-spacing: -0.025em;
 }
 #content h1 {

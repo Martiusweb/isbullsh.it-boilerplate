@@ -1,10 +1,8 @@
 ---
-title: contact
+title: Contact us
 permalink: /contact/
 layout: content
 ---
-
-# Contact
 
  * [@padenot](https://twitter.com/padenot/) && <span class="obf">xc.luap@luap</span>
 

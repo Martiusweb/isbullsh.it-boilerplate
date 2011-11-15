@@ -8,8 +8,8 @@ layout: base
 
  * [@padenot](https://twitter.com/padenot/) && <span class="obf">xc.luap@luap</span>
 
- * Balto: [@BaltoRouberol](https://twitter.com/BaltoRouberol/) &&  <span
-   class="obf">xc.razahtlab@b</span> && [Personal page](http://balthazar.cx)
+ * Oh hai, I am Balto. I like to [tweet](https://twitter.com/BaltoRouberol/) and to check if you've sent me some spam at  <span
+   class="obf">xc.razahtlab@b</span>
 
  * Hi, I'm Martin. I blog at [martiusweb.net](http://www.martiusweb.net), tweet
    as [@MartiusWeb](https://twitter.com/MartiusWeb) and you can e-mail me  at <span

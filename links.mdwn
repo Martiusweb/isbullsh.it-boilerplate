@@ -10,3 +10,5 @@ Good links we like.
 
  * [Hacker News](http://http://news.ycombinator.com) : Your ultimate source of
    information.
+
+ * [InstaCSS](http://instacss.com) : Gimmeh teh CSS docs

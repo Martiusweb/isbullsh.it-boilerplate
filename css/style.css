@@ -450,6 +450,9 @@ body > header > div > h1 > a {
   -o-transition: background 250ms ease;
 }
 
+section#content > ol > li {
+    list-style: none outside none;
+}
 /* =============================================================================
    Non-semantic helper classes
    Please define your styles before this section.

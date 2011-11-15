@@ -207,6 +207,7 @@ body > header {
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 1000;
 }
 body > header > div > h1 > a {
   position: relative;
@@ -255,6 +256,25 @@ div#main > section#content {
 /** Easter egg */
 body > p {
   text-align: center;
+}
+
+/** Post page */
+section#content > .meta, section#content > #markdown-toc {
+  width: 30%;
+  float: right;
+  padding: 1em 1em 1em 40px;
+  margin: 0;
+  position: relative;
+  bottom: 1em;
+  left: 1em;
+}
+section#content > #markdown-toc {
+  clear: both;
+}
+div#main > #totoc {
+  position: fixed;
+  top: 5em;
+  right: 7.5em;
 }
 
 /* Colors and page styles */
@@ -313,6 +333,27 @@ div#main > footer {
 body > p {
   color: #DDD;
   text-shadow: 1px 1px #FFF;
+}
+
+/** Post page */
+section#content > .meta, section#content > #markdown-toc {
+  border-left: 1px #CCCCCC solid;
+  background: rgba(163, 161, 119, 0.25);/* #EAECEF;*/
+  color: #333333;
+  box-shadow: 0 1px 0 #FFFFFF inset;
+}
+section#content > .meta a, section#content > #markdown-toc a {
+  background: none;
+}
+section#content > .meta {
+  border-bottom: 1px #CCCCCC solid;
+}
+section#content > #markdown-toc {
+  border-bottom: 1px #CCCCCC solid;
+}
+#totoc a {
+  color: #000000;
+  text-shadow: 1px 1px #FFFFFF;
 }
 
 /* Typo and styles */

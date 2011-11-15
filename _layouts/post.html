@@ -2,5 +2,20 @@
 layout: base
 class: post
 ---
-
-{{content}}
+<div id="totoc"><a href="#main">Up!</a></div>
+<section id="content">
+  <div class="meta">
+    <ul>
+      <li>Article written by <a href="/contact/#{{page.byline|downcase}}">{{page.byline}}</a></li>
+      <li>Published on {{page.date|date_to_string}}</li>
+      {% if page.tags %}
+      <li>Tags:
+        <ul>
+          {% for tag in page.tags %}<li><a href="http://{{tag|downcase}}.isbullsh.it">{{tag}}</a></li>{% endfor %}
+        </ul>
+      </li>
+      {% endif %}
+    </ul>
+  </div>
+  {{content}}
+</section>

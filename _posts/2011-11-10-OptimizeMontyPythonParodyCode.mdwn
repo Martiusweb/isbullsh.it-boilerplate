@@ -48,7 +48,7 @@ These commands will result into an output listing the 10 most time-consuming fun
             1    1.177    1.177   48.657   48.657 probabilities.py:33(empirical_entropy_rate)  
       1617584    1.818    0.000   45.773    0.000 probabilities.py:88(conditional_empirical_proba)  
       1617584    1.518    0.000   43.955    0.000 probabilities.py:112(n_b_ak)  
-      1638868   43.075    0.000   43.075    0.000 {method 'count' of 'str' objects}    
+      1638868   43.075    0.000   43.075    0.000 {method 'count' of 'str' objects}   
             1    0.009    0.009    1.050    1.050 /usr/lib/python2.6/pickle.py:1361(dump)  
             1    0.000    0.000    1.041    1.041 /usr/lib/python2.6/pickle.py:220(dump)  
       86729/1    0.275    0.000    1.041    1.041 /usr/lib/python2.6/pickle.py:269(save)"
@@ -63,7 +63,7 @@ $ runsnake proba.prof
 
 to generate a nice output like this (sorry for the flashy green >_<) :
 
-![runsnakerun output](/img/runsnake_profile.png)
+![runsnakerun output](/static/img/runsnake_profile.png)
 
 We hence can have a (rather) nice graphic view of the profile results previously obtained with the profile module.
 
@@ -115,7 +115,7 @@ We now have two choices :
 
 We will focus on the latter, and try to suggest some ideas of hacks at the end of the article.
 
-# Problem : <code>str.count()</code> is written in C !
+# Problem : str.count() is written in C !
 
 You know how people always brag about C being freakishly fast? They are right. But our problem is that <code>str.count()</code> is a Python built-in method ... written in C. If we'd rewrite the entire same program in C, we would then be optimizing the remaining 10%, but it would have no effect on the main algorithm. Shoot !
 
@@ -171,7 +171,7 @@ symbol = chain[i+k] # symbol after ak
 
 We could then perform these operations until there is no <code>ak</code> occurence in <code>chain</code>.
 
-My point is that sometimes you can optimize your code, sometimes you must change the method if you want your program to be scalable.
+My point is that sometimes you can optimize your code, **sometimes you must change the method if you want your program to be scalable**.
 
 # Conclusions
 

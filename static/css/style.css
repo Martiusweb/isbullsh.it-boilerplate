@@ -346,8 +346,26 @@ section#content > .meta, section#content > #markdown-toc, section#content > div.
   color: #333333;
   box-shadow: 0 1px 0 #FFFFFF inset;
 }
-section#content > .meta a, section#content > #markdown-toc a, section#content > div.related-posts a {
+section#content > #markdown-toc a, section#content > div.related-posts a {
   background: none;
+}
+section#content div.meta .tags {
+  list-style: none;
+  display: inline-block;
+}
+section#content div.meta .tags a {
+  background: #EAECEF;
+  box-shadow: 2px 2px 5px #888888;
+  padding: 3px;
+  margin-right: 0.5em;
+  line-height: 1.2em;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #333333;
+  text-shadow: none;
+}
+section#content div.meta .tags a:hover {
+  box-shadow: 2px 2px 5px #666666;
 }
 section#content > .meta {
   border-bottom: 1px #CCCCCC solid;
@@ -462,11 +480,10 @@ body > header > div > h1 > a {
   -webkit-transition: background 250ms ease;
   -o-transition: background 250ms ease;
 }
-
 #content img {
   box-shadow: 3px 3px 8px #888888;
 }
-
+	
 section#content > ol > li {
     list-style: none outside none;
 }

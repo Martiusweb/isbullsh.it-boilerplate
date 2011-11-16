@@ -12,10 +12,11 @@ class: post
       <li>Published on {{page.date|date_to_string}}</li>
       {% if page.tags %}
       <li>Tags:
-        <ul>
-          {% for tag in page.tags %}<li><a href="http://{{tag|downcase}}.isbullsh.it">{{tag}}</a></li>{% endfor %}
-        </ul>
-      </li>
+	<nav class="tags">
+        {% for tag in page.tags %}
+	<a href="http://{{tag|downcase}}.isbullsh.it">{{tag}}</a>
+	{% endfor %}
+      </nav>
       {% endif %}
     </ul>
   </div>

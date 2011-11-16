@@ -262,7 +262,9 @@ body > p {
 }
 
 /** Post page */
-section#content > .meta, section#content > #markdown-toc, section#content > div.related-posts{
+section#content > .meta,
+  section#content > #markdown-toc,
+  section#content > div.related-posts {
   width: 30%;
   float: right;
   padding: 1em 1em 1em 40px;
@@ -271,7 +273,8 @@ section#content > .meta, section#content > #markdown-toc, section#content > div.
   bottom: 1em;
   left: 1em;
 }
-section#content > #markdown-toc, section#content > div.related-posts {
+section#content > #markdown-toc,
+  section#content > div.related-posts {
   clear: both;
 }
 div#main > #totoc {
@@ -284,6 +287,12 @@ section#content div.meta .tags a{
   margin-right: 0.5em;
   line-height: 1.2em;
 }
+
+/** List pages */
+.list section#content > ol {
+  padding: 0;
+}
+
 /* Colors and page styles */
 body {
   background: #F6F6F6;
@@ -386,6 +395,18 @@ section#content > div.related-posts {
 #totoc a {
   color: #000000;
   text-shadow: 1px 1px #FFFFFF;
+}
+
+/** List pages */
+.list article > h2 > a {
+  text-decoration: none;
+  color: #333333;
+}
+.list section#content > ol > li {
+  border-bottom: 1px #CCCCCC solid;
+}
+.list section#content > ol > li:last-child {
+  border: 0;
 }
 
 /* Typo and styles */

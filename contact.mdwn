@@ -4,6 +4,9 @@ permalink: /contact/
 layout: content
 ---
 
+You can talk to us or buy us a beer (let me be clear: one beer each). We love to
+receive tweets or emails from you folks!
+
  * [@padenot](https://twitter.com/padenot/) && <span class="obf">xc.luap@luap</span>
 
  * Oh hai, I am Balto. I like to [tweet](https://twitter.com/BaltoRouberol/) and to check if you've sent me some spam at  <span

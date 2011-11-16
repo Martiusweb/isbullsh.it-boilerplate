@@ -279,7 +279,11 @@ div#main > #totoc {
   top: 5em;
   right: 7.5em;
 }
-
+section#content div.meta .tags a{
+  padding: 3px;
+  margin-right: 0.5em;
+  line-height: 1.2em;
+}
 /* Colors and page styles */
 body {
   background: #F6F6F6;
@@ -356,9 +360,6 @@ section#content div.meta .tags {
 section#content div.meta .tags a {
   background: #EAECEF;
   box-shadow: 2px 2px 5px #888888;
-  padding: 3px;
-  margin-right: 0.5em;
-  line-height: 1.2em;
   border-radius: 4px;
   text-decoration: none;
   color: #333333;

@@ -1,0 +1,282 @@
+---
+title: How I dumped Google
+tags: [internet]
+byline: Paul
+layout: post
+published: true
+---
+
+A few months ago, I decided to progressively stop using Google products. They
+are indeed good products (or were, see Google Reader), but I'm talking about
+other reasons, here.
+
+Google products, by essence, are practical. You can login with your Google Account
+(almost) anywhere in the world, and you get a full range of applications to
+communicate, find information, or work with.
+
+But there are other essential characteristics of these products :
+
+- They are _free_. This may be an advantage for certain people, but not for me.
+  I do prefer paying money for a service that I know is reliable, and I pay for it
+  to be reliable, so that I have something to rant about when the service is not
+  working (which is unlikely, I admit, but not impossible, and has happened in the
+  past). In the same manner, Google can decide to suspend your account. You can
+  virtually do nothing against that, and this has happened in the past. If I pay,
+  I can be sure that my data is safe (_as pointed by Brice in the comments, this
+  is a horrible simplification, and is definitely not true_). On a related note, I
+  would be glad to give money to startups, if they were providing a service I need
+  (in the same sense that buying a song instead of torrenting helps the artist).
+- They are _web-based_. This is clearly an advantage, in a sense, but up to a
+  certain point. Considering GMail, for example. When I perform an operation on my
+  mail client, I don't want to wait, it should be instantaneous. And as good as
+  GMail is (and I've used it for 7 years), when you click to do something, there
+  is sometimes a delay (probably the HTTP request) before you can do something.
+  The same can be told about any shared and free web application, as far as I've
+  experienced. This is simply a regression in my experience of the software. The
+  5% of the time I need to access my mail when I haven't got my PC and I
+  haven't got connection on my smartphone is not worth the frustration I have
+  when GMail is not responsive. This point is not against web applications at
+  all. My self-hosted applications are fast-as-hell.
+- They don't protect your _privacy_. It is a know fact that Google reads your
+  emails, and I consider email important enough not to let anyone read it. Well
+  yeah, you can argue that only machines are reading my mail, and not humans,
+  and that the email protocol is not safe, but at the end, I don't want to have
+  a third party to read my email, period.
+- They don't place you in _control_. When use an integrated solution, such as
+  Google applications (or even a Mac, in a certain extent), I have no control on
+  what I can and cannot do. If my mail client interface changes in the next
+  version, I can choose to stay on the current version (even if sometimes, I
+  should update, because of security fixes). If Google Reader changes, I cannot
+  do anything. At most Google folks are kind enough to grant the user a
+  transitional period when they can use the old interface. Don't get me wrong, I
+  love when software are evolving, but sometimes, the new version does not fit a
+  certain usage anymore.
+
+Now, let's list the applications or services we need, and the feature they
+should have to be a decent competitor to Google services :
+
+- An email provider, which has a decent web-based interface, as well as IMAP 
+  support, to stop using GMail&nbsp;;
+- A calendar server, which allows me to publish and share calendars with people
+  that use Google Agenda or any other calendar software&nbsp;;
+- Instant messaging solution that can reach people on GTalk (because most of my
+  friends are using GTalk)&nbsp;;
+- A Web-based RSS feed reader, with both desktop and mobile support, to be able
+  to drop Google Reader&nbsp;;
+- A solution to host my photos, for my familly and friend to view them in a nice
+  way, to ditch Picasa&nbsp;;
+- A solution to collaborate on documents with friends, to get rid of Google
+  Docs&nbsp;;
+
+The ultimate goal of this experiment is therefore to have products that work
+(even after complicated installation/configuration, etc.), and are
+interoperable. Despite ranting about Google and the fact that the web should be
+distributed all day, most of the persons I interact on a daily basis don't care
+(or are not aware), and use Google services extensively. For me to
+work/chat/interact with them, my services should be able to connect, or be
+compatible, with Google service.
+
+# Email
+
+On the advice of several Mozilla folks, I started paying for the most expensive
+plan at <http://fastmail.fm>. It allows me to use a custom domain for my email
+address, a large number of those, file storage, etc.
+
+I use Thunderbird, which has, to tell the truth, several minor bugs, but is
+_fast_, _reliable_, _extensible_. Almost anything I do which doesn't involve the
+network is instant (reading email, composing email, searching through a huge
+amount of old email with crazy filters, etc.). I can use seamlessly a large
+amount of email account (university email, personal address, Mozilla email,
+exchange university account, etc.), and it _just works_. I don't have to give my
+password to a third party browser plugin to have desktop notification, and I can
+compose my email without having the interface slowing down my typing. One killer
+feature for me : `space` goes to the next unread email, perfect for those crazy
+mornings when you received a ton of email during the night.
+
+Fastmail does not have the sexiest web interface that exists. In fact, it is way
+inferior to GMail's (which is arguably the best one out there, Microsoft's
+Web-based Outlook being a good second). But as I said before, I can hardly use a
+web interface, now that I have used a native client, and it did the job
+perfectly when I had to write an email without having my phone nor my computer.
+All the feature you expect from a webmail are present except threading (or
+conversation, as they are called in GMail), which is kind of a big deal, but not
+much. SMTP is way faster and more reliable than GMail's. The synchronization
+between PCs and devices is instantaneous, and reliable, whereas GMail's get
+confused if the traffic is too high. I suspect the IMAP implementation of GMail
+is not very good (which is quite logical considering their market segment, which
+is the webmail client).
+
+<div class="withcaption">
+<img src="http://paul.cx/public/fastmail.png" alt="Fastmail.fm interface"/>
+  <p>
+    This interface it tweakable via a custom CSS.
+  </p>
+</div>
+
+I use a very old Android smartphone (HTC G2, i.e. the second one released in the
+world), and the mobile web interface of Fastmail is not beautiful, but very
+efficient : fast, minimalistic. It does not have AJAX goodies, and it fits
+my usage perfectly. I think I will maybe switch to a native email client for my
+phone when I will change it (in the next few months or so), but as for now, I
+don't know the state of the mobile email client market, so this might be a
+problem in the future. As a backup solution, I suppose I could install an email
+webapp on my server to have a nicer client on the mobile, though, but at the
+expense of researching and testing all the clients (remember that all I did for
+now was to enter my credit card number in `fastmail`'s website, and point my
+Thunderbird to it).
+
+To finish, I know I could have hosted my email on a personal server, but I don't
+trust myself enough to do so. Email, is for me, the primary mean of
+communication, both for work and personal life, and I want it to be up all the
+time, while my emails are safe and backuped.
+
+This service costs about $40 a year, which is $3.33 a months. Considering a
+decent sandwich costs more than that where I currently live (Sweden), it is
+perfectly acceptable. Note that you can pay way less money if you don't want the
+best plan <http://fastmail.fm> offers. For this price, you have 10Gb of space,
+attachments up to 50MB, 2GB space to store file (not very useful if you have
+your server), provides an XMPP server and is able to connect to GTalk (but more
+on that later).
+
+# A calendar server
+
+I think I have found the cutest and easiest calendar server in the world :
+[Radicale](http://radicale.org/). It is written in Python, and does not add
+crapwares in your system, since it's standalone (i.e. no dependencies).
+
+To start a calendar server, type `radicale` in the command line (after having
+installed the package, of course). Then point your Thunderbird (equipped with
+the Lightning addon) (or any other software that supports the CalDav
+protocol, this includes iCal and a bunch of other software) to
+`http://example.com/username/calendarname` the calendars are created _on
+the fly_. You can add authentication (I let you dig in in the
+`/etc/radicale/config`, which is basically the unique configuration
+file), and a lot of other stuff, but I only use the basic functionalities.
+
+<div class="withcaption">
+<img src="http://paul.cx/public/lightning.png" alt="Thunderbird interface"/>
+  <p>
+    A view of Lightning, the calendar addon for Thunderbird.
+  </p>
+</div>
+
+I keep my Radicale instance in a `tmux`, but I guess you could wrap it in a
+`/etc/init.d` script, and it would be cleaner.
+
+# RSS web application
+
+In the past, I used to use several RSS feed readers ; RSSOwl, Liferea, and a KDE
+software I have forgotten the name of, and it was always a pain when I wanted to add a new
+feed : I had to do it manually on all my devices. More over, the read/unread
+status of the articles where inconsistent: if I read an article on one device,
+it wasn't mark as read on other devices. That was the primary reason why I
+switched to Google Reader in the first place.
+
+But several month ago, I had just started to pay for the cheapest VPS plan at
+OVH, and figured out that I could host a web based RSS application. A guy at
+Mozilla was using Tiny Tiny RSS, so I decided to give it a shot.
+
+<div class="withcaption">
+<img src="http://paul.cx/public/ttrss.png" alt="TTRSS interface"/>
+  <p>
+    The interface of Tiny Tiny RSS, easily configurable.
+  </p>
+</div>
+
+Written in PHP, it uses MySQL as database (I seem to recall other option exist for
+the database, but this is my current setup), so it can be used on virtually any
+hosting plan in the world. It is currently the only software that
+require PHP and MySQL on my server, but it definitely worth an instance of those
+two software running. I find it way better than Google Reader (and I have used
+Reader for at least three years). It has all the features you need (and a
+lot of features you don't need), and a nice mobile interface (which is
+responsive enough in my opinion not to have a native application. There
+is one for Android, if you feel the need for it). It
+is password protected, and you can even have multiple accounts. It imports
+OPML files seamlessly, so the transition with Google Reader is very easy.
+Basically, it was a drop in replacement, I don't miss a single feature of
+Google Reader. TTRSS (as it is called by its author) is very fast, provides a rich
+web interface, and runs on your own server, usually with a huge bandwidth, so
+information retrieval are very _very_ fast.
+
+The development of TTRSS has somewhat slowed down, but the author still
+implements features and bug fixes. The single thing that is annoying, is that it
+binds several key combination (I think `ctrl+pageup/down` and `ctrl+tab`), in a
+way that it doesn't change tab anymore in my Firefox. I might patch that in the
+future (or write a quick Firefox Jetpack addon or _userscript_), but it's
+nothing terrible.
+
+# Photos hosting
+
+There is lots of web-based images gallery, but I didn't want a bloatware, so I
+settled on the old `genethumb.sh` by Sam Hocevar. But it was ugly. So I rolled
+out my own utility, `yadfig`, _Yet Another Damn Fine Image Gallery_, which has all
+the cool features (or at least the feature I need): command line driven, 
+automatic thumbnail generation, nice
+HTML5/CSS3 frontend, static HTML pages generation, etc. Yes you can't add
+comments, rate the pictures, but it doesn't need anything apart from Python, a
+library to get the `exif` tags, and a web server to work. You can see an example
+[here](http://paul.cx/photos/sweden/djugarden/). And if it does not fit you
+needs, make a pull request, since it's open-source and on
+[Github](http://github.com/padenot/yadfig). The codebase is tiny, so you should
+be able to do what you want in a minute.
+
+# Instant messaging
+
+As a `fastmail.fm` user, it is trivial to have an XMPP server which is not
+Google's : Fastmail provides for its paying customers an XMPP server, based on
+`ejabberd`. In your Empathy (or any
+other XMPP client), type in your `fastmail.fm` user name and password and
+_voilà_. Then you can import all you GTalk user list, and your good to go. Your
+contacts will have to confirm they know you, however.
+
+I personally have a very basic usage of IM, I only use it for instant messaging,
+no crazy plugin, no group chat (I use IRC for that), and it works very well.
+I've heard that Fastmail's XMPP server supports XMPP extension, and I might dig
+in it, but for now, I'm completely satisfied.
+
+For now, my usage of this solution is however quite hypocritical. I still talk
+to people only on GTalk, but this experiment proves that if any of my contact switches to
+another provider, as long as he/she still uses XMPP, the hassle will be minimum,
+and that we can have a decentralized solution that works with a minimum
+of work.  I've heard that you can connect to Facebook chat using a
+similar method, but I don't use Facebook much these days, so this is not a strict
+requirement for me.
+
+I might try to host my own XMPP server in the near future, though.
+
+# Document sharing and collaboration
+
+This is probably the toughest part. When I'm working with programmer (which is
+most of the time), we happily use `git` with Github, or my own server, but
+when I have to collaborate with non-programmer, sometime Etherpad is enough,
+sometimes not. I'm looking forward to LOOL (LibreOffice OnLine), but in the
+meantime, I haven't found a solution as user-friendly as Google Docs.
+
+This is a shame, because Google Docs tends to produce horrible documents.
+Perhaps I should try more to push people (even non-technical) to Markdown (since
+it's trivial to grasp the minimal subset you need), and Etherpad, and produce
+good quality documents, ready for the web (which is kind of a big deal), for a
+print using a LaTeX converter, and which does not use a crappy and slow web
+interface, with a nonsense WYSIWYG editor which makes you lose you time over
+styling for crappy result.
+
+# Conclusion
+
+As for now, I have successfully replaced all the Google services I used with
+equivalent (or better) services. My GMail accounts is still active for spammy
+services and
+for the time I tell all the people who might want to communicate with me my new
+email address. I still need to find a better solution for the
+document sharing and collaboration part, but I was planning for a lot tougher
+transition. I rediscovered the joy of fast, responsive software in the
+process, and learnt a lot, which are both quite nice externalities.
+
+I've not searched a replacement for the Google Search, since the last time I
+checked, the quality of alternative solutions was depressing. I might
+investigate in the near future, and I've heard Duck Duck Go is acceptable, so I
+might give it a shot.
+
+If you have comments, alternative software or solution, or anything (relevant to
+this post) to say, please feel free to drop a comment, or contact me by all
+the means you find.

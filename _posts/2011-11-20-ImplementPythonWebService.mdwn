@@ -1,0 +1,161 @@
+---
+title: Create your own web-service using Python and micro web frameworks
+tags:
+  - python
+byline: Balto
+layout: post
+published: true
+---
+
+- stripped
+{:toc}
+
+
+The idea of this post is to show you that if you want to implement a web-service, Python could be the way to go. The simplicity of the language syntaxis combined with some good micro-framework results into a powerful combination. 
+
+# What framework should I use ?
+If you plan to build a dynamic website, with database access, models and views, I would then strongly recommand [Django](https://docs.djangoproject.com/en/1.3/), for the following reasons:
+
+ * It's well documented
+ * It supports Sqlite3, MySQL, PostgreSQL, ... through python communication modules
+ * It includes a sh*itload of built-in modules (even local modules, specific to a certain country)
+ * No PHP. Oh wait, let me just rephrase that a little.. NO PHP ! (There, I fixed it.)
+ * It's well documented ! (Yes, again. That might even be the most important point of all.)
+
+But now, what about if you just want to write a small web-service? Then, using Django will be like using a QuadCore Intel i7 & 1Gb graphic card computer to run MineSweeper. A little too much. You should thus think about **micro frameworks**, instead of humongous web-frameworks like Django. 
+
+There are many excellent Pythono micro web frameworks : LINKS
+
+ * [Bottle](http://bottlepy.org/docs/dev/)
+ * [Flask](http://flask.pocoo.org/)
+ * ?
+
+I only have experience with Bottle, so that's the one I'll use today ! Don't hesitate to read the docs.
+
+# How do I install it ?
+The bottle module can be downloaded [here](http://bottlepy.org/docs/dev/) or simply installed (on Linux) with the following <code>PyPi</code> command :
+{% highlight bash %}
+$ easy_install -U bottle
+{% endhighlight %}
+
+That will only install one Python file on your computer : <code>bottle.py</code>. That's it. That's the beauty of these micro-frameworks : they are truely light and dependance-free.
+
+You should check if the installation went fine, typing the following command in your python interpreter:
+{% highlight python %}
+>>> import bottle
+{% endhighlight %}
+
+# A simple web-service : convert a text to uppercase
+In this example, we will implement a -useless- simple web service, in order to allow you to concentrate on the framework and not on the python operations.
+This web service will convert input text to uppercase. The text can be given :
+
+ * as a plain argument
+ * through a text file
+
+The output will be a JSON structure, with input and output fields.
+
+# Boilerplate
+*Note* : If hosted, your web-service will be accesible through a URL. We will only run a local server in this example, that's why the root of the server will be our localhost.
+
+First, you create a <code>server.py</code> file in which you import the following modules :
+{% highlight python %}
+import bottle # Web server
+from bottle import run, route, request
+{% endhighlight %}
+
+The <code>@route()</code> decorator allows you to **match a URL to a Python function**. 
+
+Now, at the end of your file, add the following <code>main</code> code
+{% highlight python %}
+if __name__ == '__main__':        
+    # To run the server, type-in $ python server.py
+    bottle.debug(True) # display traceback 
+    run(host='localhost', port=8080, reloader=True) 
+{% endhighlight %}
+
+This is the only code you need for your server to run. Pretty neat hm?
+
+# Building the web-service homepage 
+We would like to display a welcome & instruction message at the root of the web-service. To do that, we will implement an extremely simple function :
+
+{% highlight python %}
+@route('/')
+def index():
+    """ Display welcome & instruction messages """
+    return "<p>Welcome to my extra simple bottle.py powered server !</p> \
+    	   <p>There are two ways to invoke the web service :\
+	   <ul><li>http://localhost:8080/up?s=type_your_string_here</li>\
+	   <li>http://localhost:8080/up?URL=http://url_to_file.txt</li></ul>"
+{% endhighlight %}
+
+The <code>@route('/')</code> will match the root of the website to the <code>index()</code> function. Thus, when we'll go to <code>http://localhost:8080/</code>, we will see the welcome message.
+
+# Implentation of the uppercase function
+
+The implementation is pretty straightforward. Try to read it and understand every piece of it.
+
+{% highlight python %}
+@route('/up')
+def uppercase():
+    """ 
+    Convert given text to uppercase
+    (as a plain argument, or from a textfile's URL)
+    Returns an indented JSON structure
+    """
+    
+    # Store HTTP GET arguments
+    plain_text   = request.GET.get('s'  , default=None)
+    textfile_url = request.GET.get('URL', default=None)
+
+    # Execute WebService specific task
+    # here, converting a string to upper-casing
+    if plain_text is not None:
+        return json.dumps(
+            {'input' : plain_text, 
+             'result': plain_text.upper()
+             },
+            indent=4)
+
+    elif textfile_url is not None:
+        textfile = urlopen(textfile_url).read()
+        return json.dumps(
+            {'input' : textfile,
+             'output': '\n'.join( [line.upper() for line in textfile.split('\n')] ) 
+             },
+            indent=4)
+{% endhighlight %}
+
+The '/up' routing can take two types of arguments:
+
+ * a plain string, with the ?s=... parameter
+ * a text file url, with the ?URL=... parameter
+
+In this case, we consider that the plain text argument is to be prioritised.
+
+And that's it! You can now run the <code>server.py</code> script with the command 
+{% highlight bash %}
+$ python server.py
+{% endhighlight %}
+
+and then try to enter these URL in your browser :
+    
+ * http://localhost:8080/
+ * http://localhost:8080/up?s=oh hai, i am shouting
+ * http://localhost:8080/up?URL=http://url_to_file.txt
+
+# What now ?
+You should definively read the docs. I have only shown you the basic stuff, which is request routing. There are plenty more things to see, like :
+
+ * templating
+ * dynamic content
+ * ...
+ 
+And you should find a better web-service idea too. Mine is kinda lame.
+
+Have you noticed how little time we spend writing Bottle-specific instructions? We basically only have 6 lines of them !
+
+ * the <code>@route()</code> decorators
+ * the HTTP GET arguments storage
+ * the <code>main</code> 
+
+This allows you to focus on your code, without it getting obfuscated by numerous framework calls. (Java? Who said Java?) Woot !

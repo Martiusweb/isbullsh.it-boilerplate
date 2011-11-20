@@ -514,7 +514,7 @@ body {
   font-size: 16px;
 }
 body > header > div > nav {
-  font-family: Helvetica,Arial,sans-serif;
+  /*font-family: Helvetica,Arial,sans-serif;*/
 }
 
 /** Header */
@@ -544,21 +544,26 @@ div#main h1, div#main h2, div#main h3, div#main h4, div#main h5, div#main h6, se
 #content h1 {
   font-size: 2em;
   font-weight: normal;
+  line-height: 1.5em;
 }
 #content h2 {
   font-size: 1.8em;
   font-weight: normal;
+  line-height: 1.4em;
 }
 #content h3 {
   font-size: 1.6em;
   font-weight: normal;
+  line-height: 1.3em;
 }
 #content h4 {
   font-size: 1.4em;
   font-weight: normal;
+  line-height: 1.2em;
 }
 #content h5 {
   font-size: 1.2em;
+  line-height: 1.1em;
 }
 #content h6 {
   font-size: 1em;

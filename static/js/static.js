@@ -2,7 +2,6 @@ function top() {
   var page_size = window.innerHeight + window.scrollMaxY;
   var accel = 1.1;
   function up() {
-    console.log(accel);
     // Quadratic progression
     accel *= accel;
     window.scrollBy(0,-accel);

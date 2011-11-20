@@ -1,0 +1,3 @@
+[submodule "static/js/libs/magnify.js"]
+	path = static/js/libs/magnify.js
+	url = http://github.com/padenot/magnify.js.git

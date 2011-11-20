@@ -12,11 +12,13 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<link rel="stylesheet" href="/static/css/style.css">
 	<link rel="stylesheet" href="/static/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="/static/js/libs/magnify.js/magnify.css">
 	<script src="/static/js/libs/modernizr-2.0.6.min.js"></script>
 	<script src="/static/js/static.js"></script>
+	<script src="/static/js/libs/magnify.js/magnify.js"></script>
 </head>
 
-<body{% if page.class %} class="{{page.class}}"{% endif %}>
+<body{% if page.class %} class="{{page.class}}"{% endif %} onload="init_magnify()">
 <header>
   <div>
     <h1><a href="/"><span class="tag">*</span>.isBullsh.it</a></h1>

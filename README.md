@@ -19,3 +19,7 @@ Current contributors are :
  - Create tag pages, containing list of articles filterd by tag, these pages
    must be similar to home page.
  - Add css/js minifier operations during build.
+
+## Good practices
+
+ - Tag names (in article files) must be in lower-case

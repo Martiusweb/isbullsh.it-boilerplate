@@ -328,10 +328,10 @@ div#main > #totoc > a:hover {
 	transition: opacity 1s ease-in-out;
 }
 
-section#content div.meta .tags a{
+div.meta .tags a{
   padding: 3px;
   margin-right: 0.5em;
-  line-height: 1.2em;
+  font-size: 0.8em;
 }
 
 /** List pages */
@@ -415,6 +415,8 @@ nav.tags {
   list-style: none;
   display: inline;
   line-height: 1.2em;
+  font-family: sans;
+  font-size: 0.8em;
 }
 
 nav.tags a {
@@ -442,6 +444,10 @@ nav.tags a:hover {
 	-o-transition: box-shadow 0.5s ease-in-out;
 	-ms-transition: box-shadow 0.5s ease-in-out;	
 	transition: box-shadow 0.5s ease-in-out;
+}
+aside.postInfo {
+  padding-left: 0.5em;
+  padding-bottom: 0.5em;
 }
 aside.postInfo > .meta {
   border-bottom: 1px #CCCCCC solid;
@@ -533,8 +539,9 @@ div#main > header {
   font-size: 1.6em;
 }
 #content {
-  line-height: 1.5em;
-  font-size: 1.1em;
+  text-align: justify;
+  margin-left: 1em;
+  margin-right: 1em;
 }
 
 /** Titles */

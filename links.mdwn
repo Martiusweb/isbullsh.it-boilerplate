@@ -10,4 +10,4 @@ Good links we like.
  * [Hacker News](http://http://news.ycombinator.com) : Your ultimate source of
    information.
  * [InstaCSS](http://instacss.com) : Gimmeh teh CSS docs
- * [Distrowatch](http://distrowatch.com/) : But the fun back into computing: use Linux, BSD.
+ * [Distrowatch](http://distrowatch.com/) : Put the fun back into computing: use Linux, BSD.

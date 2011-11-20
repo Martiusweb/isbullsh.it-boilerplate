@@ -9,7 +9,7 @@ receive tweets or emails from you folks!
 
  * [@padenot](https://twitter.com/padenot/) && <span class="obf">xc.luap@luap</span>
 
- * Oh hai, I am Balto. I like to [tweet](https://twitter.com/BaltoRouberol/) and to check if you've sent me some spam at  <span
+ * Oh hai, I'm Balto. I like to [tweet](https://twitter.com/BaltoRouberol/) and to check if you've sent me some spam at  <span
    class="obf">cc.pami@lorebuorb</span>
 
  * Hi, I'm Martin. I blog at [martiusweb.net](http://www.martiusweb.net), tweet

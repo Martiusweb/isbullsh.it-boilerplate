@@ -1,7 +1,7 @@
 ---
 title: Create your own web-service using Python and micro web frameworks
 tags:
-  - python
+  - Python
 byline: Balto
 layout: post
 published: true
@@ -24,11 +24,10 @@ If you plan to build a dynamic website, with database access, models and views, 
 
 But now, what about if you just want to write a small web-service? Then, using Django will be like using a QuadCore Intel i7 & 1Gb graphic card computer to run MineSweeper. A little too much. You should thus think about **micro frameworks**, instead of humongous web-frameworks like Django. 
 
-There are many excellent Pythono micro web frameworks : LINKS
+There are many excellent Pythono micro web frameworks :
 
  * [Bottle](http://bottlepy.org/docs/dev/)
  * [Flask](http://flask.pocoo.org/)
- * ?
 
 I only have experience with Bottle, so that's the one I'll use today ! Don't hesitate to read the docs.
 
@@ -120,7 +119,7 @@ def uppercase():
         textfile = urlopen(textfile_url).read()
         return json.dumps(
             {'input' : textfile,
-             'output': '\n'.join( [line.upper() for line in textfile.split('\n')] ) 
+             'output': '\n'.join([line.upper() for line in textfile.split('\n')]) 
              },
             indent=4)
 {% endhighlight %}
@@ -156,6 +155,6 @@ Have you noticed how little time we spend writing Bottle-specific instructions? 
 
  * the <code>@route()</code> decorators
  * the HTTP GET arguments storage
- * the <code>main</code> 
+ * the <code>main</code> instructions
 
 This allows you to focus on your code, without it getting obfuscated by numerous framework calls. (Java? Who said Java?) Woot !

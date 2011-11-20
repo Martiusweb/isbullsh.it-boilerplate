@@ -282,9 +282,32 @@ aside.postInfo > div.related-posts {
 }
 div#main > #totoc {
   position: fixed;
-  top: 5em;
-  right: 7.5em;
+  bottom: 2em;
+  right: 5em;
+  font-weight: 700;
 }
+
+div#main > #totoc > a {
+  font-weight: 700;
+  text-decoration: none;
+  opacity: 0.25;
+  font-size: 3em;
+  -webkit-transition: opacity 1s ease-in-out;
+	-moz-transition: opacity 1s ease-in-out;
+	-o-transition: opacity 1s ease-in-out;
+	-ms-transition: opacity 1s ease-in-out;	
+	transition: opacity 1s ease-in-out;
+}
+
+div#main > #totoc > a:hover {
+  opacity: 1;
+  -webkit-transition: opacity 1s ease-in-out;
+	-moz-transition: opacity 1s ease-in-out;
+	-o-transition: opacity 1s ease-in-out;
+	-ms-transition: opacity 1s ease-in-out;	
+	transition: opacity 1s ease-in-out;
+}
+
 section#content div.meta .tags a{
   padding: 3px;
   margin-right: 0.5em;

@@ -201,8 +201,127 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 /* =============================================================================
    Primary styles
-   Author: Martin Richard
+   Author: Martin Richard, Paul Adenot
    ========================================================================== */
+
+/* Fonts */
+
+@font-face {
+    font-family: 'GentiumBasicRegular';
+    src: url('fonts/GenBasR-webfont.eot');
+    src: url('fonts/GenBasR-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/GenBasR-webfont.woff') format('woff'),
+         url('fonts/GenBasR-webfont.ttf') format('truetype'),
+         url('fonts/GenBasR-webfont.svg#GentiumBasicRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'GentiumBasicItalic';
+    src: url('fonts/GenBasI-webfont.eot');
+    src: url('fonts/GenBasI-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/GenBasI-webfont.woff') format('woff'),
+         url('fonts/GenBasI-webfont.ttf') format('truetype'),
+         url('fonts/GenBasI-webfont.svg#GentiumBasicItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'GentiumBasicBold';
+    src: url('fonts/GenBasB-webfont.eot');
+    src: url('fonts/GenBasB-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/GenBasB-webfont.woff') format('woff'),
+         url('fonts/GenBasB-webfont.ttf') format('truetype'),
+         url('fonts/GenBasB-webfont.svg#GentiumBasicBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'GentiumBasicBoldItalic';
+    src: url('fonts/GenBasBI-webfont.eot');
+    src: url('fonts/GenBasBI-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/GenBasBI-webfont.woff') format('woff'),
+         url('fonts/GenBasBI-webfont.ttf') format('truetype'),
+         url('fonts/GenBasBI-webfont.svg#GentiumBasicBoldItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'GentiumBookBasicRegular';
+    src: url('fonts/GenBkBasR-webfont.eot');
+    src: url('fonts/GenBkBasR-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/GenBkBasR-webfont.woff') format('woff'),
+         url('fonts/GenBkBasR-webfont.ttf') format('truetype'),
+         url('fonts/GenBkBasR-webfont.svg#GentiumBookBasicRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'GentiumBookBasicItalic';
+    src: url('fonts/GenBkBasI-webfont.eot');
+    src: url('fonts/GenBkBasI-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/GenBkBasI-webfont.woff') format('woff'),
+         url('fonts/GenBkBasI-webfont.ttf') format('truetype'),
+         url('fonts/GenBkBasI-webfont.svg#GentiumBookBasicItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'GentiumBookBasicBold';
+    src: url('fonts/GenBkBasB-webfont.eot');
+    src: url('fonts/GenBkBasB-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/GenBkBasB-webfont.woff') format('woff'),
+         url('fonts/GenBkBasB-webfont.ttf') format('truetype'),
+         url('fonts/GenBkBasB-webfont.svg#GentiumBookBasicBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'GentiumBookBasicBoldItalic';
+    src: url('fonts/GenBkBasBI-webfont.eot');
+    src: url('fonts/GenBkBasBI-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/GenBkBasBI-webfont.woff') format('woff'),
+         url('fonts/GenBkBasBI-webfont.ttf') format('truetype'),
+         url('fonts/GenBkBasBI-webfont.svg#GentiumBookBasicBoldItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+body {
+  font-family: "GentiumBasicRegular", Georgia,"Times New Roman",serif;
+  font-size: 16px;
+}
+
+em {
+  font-style: normal;
+  font-family: "GentiumBasicItalic", Georgia,"Times New Roman",serif;
+}
+
+em strong, strong em {
+  font-style: normal;
+  font-family: "GentiumBasicBoldItalic", Georgia,"Times New Roman",serif;
+}
+
+strong {
+  font-style: normal;
+  font-family: "GentiumBasicBold", Georgia,"Times New Roman",serif;
+}
 
 /* Wireframing */
 /** Header */
@@ -289,7 +408,6 @@ div#main > #totoc {
   bottom: 2em;
   right: 5em;
   font-weight: 700;
-<<<<<<< HEAD
 }
 
 div#main > #totoc > a {
@@ -302,9 +420,6 @@ div#main > #totoc > a {
 	-o-transition: opacity 1s ease-in-out;
 	-ms-transition: opacity 1s ease-in-out;	
 	transition: opacity 1s ease-in-out;
-}
-
-=======
 }
 
 div#main > #totoc > a {
@@ -514,14 +629,6 @@ aside.postInfo > div.related-posts {
 }
 
 /* Typo and styles */
-body {
-  font-family: Palatino, Georgia,"Times New Roman",serif;
-  font-size: 16px;
-}
-body > header > div > nav {
-  /*font-family: Helvetica,Arial,sans-serif;*/
-}
-
 /** Header */
 body > header > div > h1 {
   font-weight: normal;

@@ -20,7 +20,8 @@
   <script src="/static/js/libs/magnify.js/magnify.js"></script>
 </head>
 
-<body{% if page.class %} class="{{page.class}}"{% endif %} onload="init_magnify()">
+<body{% if page.class %} class="{{page.class}}"{% endif %}
+onload="init_magnify(); init_scroll()">
 <header>
   <div>
     <h1><a href="/"><span class="tag">*</span>.isBullsh.it</a></h1>

@@ -258,6 +258,7 @@ div#main > footer {
 }
 div#main > section#content {
   padding: 0 1em;
+  line-height: 1.4em;
 }
 
 /** Easter egg */
@@ -271,6 +272,8 @@ aside.postInfo {
   width: 45%;
   float: right;
   position: relative;
+  margin-left: 1em;
+  margin-bottom: 1em;
 }
 
 aside.postInfo ul {
@@ -289,7 +292,6 @@ div#main > #totoc {
   bottom: 2em;
   right: 5em;
   font-weight: 700;
-<<<<<<< HEAD
 }
 
 div#main > #totoc > a {
@@ -302,9 +304,6 @@ div#main > #totoc > a {
 	-o-transition: opacity 1s ease-in-out;
 	-ms-transition: opacity 1s ease-in-out;	
 	transition: opacity 1s ease-in-out;
-}
-
-=======
 }
 
 div#main > #totoc > a {
@@ -402,10 +401,13 @@ aside.postInfo > div.related-posts {
   background: #EAECEF;
   color: #333333;
   box-shadow: 0 1px 0 #FFFFFF inset;
-  border-radius: 4px;
 }
 section#content > #markdown-toc a {
   background: none;
+}
+
+aside.postInfo > div:last-child {
+  border-bottom-left-radius: 4px;
 }
 
 nav.tags {
@@ -452,7 +454,6 @@ aside.postInfo > .meta {
   border-bottom: 1px #CCCCCC solid;
 }
 section#content > #markdown-toc {
-  border-bottom: 1px #CCCCCC solid;
 }
 section#content > #markdown-toc:before {
   content: "Table of contents";
@@ -460,6 +461,7 @@ section#content > #markdown-toc:before {
   font-weight: normal;
   line-height: 2.8em;
 }
+
 aside.postInfo > div.related-posts {
     border-bottom: 1px #CCCCCC solid;
 }

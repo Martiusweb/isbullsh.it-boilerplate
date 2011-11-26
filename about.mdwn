@@ -13,11 +13,16 @@ sounded cool, we kept it.
 We don't want to be rude or insult the work of anyone, at least, not in the name
 of the blog (I can't say that for the content).
 
-# Autors
+# Authors
 
 This amazing website contains cool blog posts about tech and non-tech stuff.
 
 Here we can write stuff about us.
+
+# Syndication
+
+You can subscribe to the entries using either [RSS](/rss.xml ".isBullsh.it RSS feed.")
+or [Atom](/atom.xml ".isBullsh.it Atom feed.").
 
 # Licensing
 

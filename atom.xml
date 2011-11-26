@@ -1,28 +1,30 @@
 ---
 layout: nil
 ---
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
- 
- <title>isBullsh.it</title>
- <subtitle>We troll because we're right</subtitle>
- <link href="http://isbulsh.it" rel="self"/>
- <link href="http://isbulsh.it"/>
- <updated>{{ site.time | date_to_xmlschema }}</updated>
- <id>http://isbullsh.it/</id>
+  <link href="http://{{ site.baseurl }}/"/>
+  <link type="application/atom+xml" rel="self"
+    href="http://{{ site.baseurl }}/atom.xml"/>
+  <updated>{{ site.time | date_to_xmlschema }}</updated>
+  <title>Un hacker chez les élans</title>
+  <id>http://{{ site.baseurl }}/</id>
+  <author>
+    <name>Paul</name>
+    <email>firstname@firstname.cx</email>
+  </author>
 
- {% for post in site.posts %}
- <entry>
-   <title>{{ post.title }}</title>
-   <link href="http://0.0.0.0:4000{{ post.url }}"/>
-   <updated>{{ post.date | date_to_xmlschema }}</updated>
-   <id>http://recursive-design.com{{ post.id }}</id>
-   <author>
-     <name>by {{post.byline}}</name>
-   </author>
-   <content type="html">{{ post.content | xml_escape }}</content>
-   <category {% for tag in post.tags %}term="{{tag}}" {% endfor %}/> 
- </entry>
- {% endfor %}
- 
+  {% for post in site.posts %}
+  <entry>
+    <id>http://{{ site.baseurl }}{{ post.id }}</id>
+    <link type="text/html" rel="alternate" href="http://{{ site.baseurl }}{{ post.url }}"/>
+    <title>{{ post.title | xml_escape }}</title>
+    <updated>{{ post.date | date_to_xmlschema }}</updated>
+    <author>
+      <name>paul@paul.cx (Paul ADENOT)</name>
+      <uri>http://{{ site.baseurl }}/</uri>
+    </author>
+    <content type="html">{{ post.content | html_espace | xml_escape }}</content>
+  </entry>
+  {% endfor %}
 </feed>

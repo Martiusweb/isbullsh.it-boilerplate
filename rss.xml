@@ -1,26 +1,28 @@
 ---
 layout: nil
 ---
-<?xml version="1.0" encoding="ISO-8859-1" ?>
-<rss version="2.0">
-  
-<channel>
-  <title>isBullsh.it</title>
-  <link>http://isbullsh.it</link>
-  <description>We troll because we're right</description>
-  
-  {% for post in site.posts %}
-  <item>
-    <title>{{post.title}}</title>
-    <link>http://0.0.0.0:4000{{post.url}}</link>
-    <description>{{ post.content | xml_escape }}</description>
-    {% for tag in post.tags %}
-    <category>{{tag}}</category>
-    {% endfor %}
-    <pubDate>{{ post.date | date_to_xmlschema }}</pubDate>
-  </item>
-  {% endfor %}
-  
-</channel>
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 
-</rss> 
+  <channel>
+    <title>Un hacker chez les élans</title>
+    <link>http://{{ site.baseurl }}/</link>
+    <atom:link href="http://{{ site.baseurl }}/rss.xml" rel="self"
+      type="application/rss+xml" />
+    <description>Blog de voyage en Suède</description>
+    <language>fr-FR</language>
+    <pubDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S +0200" }}</pubDate>
+    <lastBuildDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S +0200" }}</lastBuildDate>
+
+    {% for post in site.posts %}
+    <item>
+      <title>{{ post.title | xml_escape }}</title>
+      <link>http://{{ site.baseurl }}{{ post.url }}</link>
+      <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S +0200" }}</pubDate>
+      <author>paul@paul.cx (Paul ADENOT)</author>
+      <guid>http://{{ site.baseurl }}{{ post.id }}</guid>
+      <description>{{ post.content | html_escape | xml_escape }}</description>
+    </item>
+    {% endfor %}
+  </channel>
+</rss>

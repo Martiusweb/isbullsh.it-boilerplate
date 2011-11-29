@@ -113,7 +113,7 @@ nav ul, nav ol { list-style: none; margin: 0; padding: 0; }
  * code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
  */
 
-img { border: 0; -ms-interpolation-mode: bicubic; }
+img { border: 0; -ms-interpolation-mode: bicubic;}
 
 /*
  * Correct overflow displayed oddly in IE9
@@ -405,8 +405,12 @@ aside.postInfo > div.related-posts {
   background: #EAECEF;
   color: #333333;
   box-shadow: 0 1px 0 #FFFFFF inset;
-  border-radius: 4px;
 }
+
+aside.postInfo > div.related-posts {
+  border-radius: 0px 0px 4px 4px;
+}
+
 section#content > #markdown-toc a {
   background: none;
 }
@@ -478,6 +482,18 @@ aside.postInfo > div.related-posts {
   width: 50%;
 }
 
+#main  #content img {
+  display: block;
+  max-width: 100%;
+  margin-top: 1em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#main #content img {
+  border-radius: 4px;
+  box-shadow: 3px 3px 8px #888888;
+}
 .nextprev a {
   white-space: nowrap;  
   width: 15em;                     

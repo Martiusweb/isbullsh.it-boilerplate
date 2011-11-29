@@ -24,11 +24,13 @@ If you plan to build a dynamic website, with database access, models and views, 
 
 But now, what about if you just want to write a small web-service? Then, using Django will be like using a QuadCore Intel i7 & 1Gb graphic card computer to run MineSweeper. A little too much. You should thus think about **micro frameworks**, instead of humongous web-frameworks like Django. 
 
-There are many excellent Pythono micro web frameworks :
+There are many excellent Python micro web frameworks :
 
  * [Bottle](http://bottlepy.org/docs/dev/)
  * [Flask](http://flask.pocoo.org/)
-
+ * [CherryPy](http://www.cherrypy.org/)
+ * ...
+ 
 I only have experience with Bottle, so that's the one I'll use today ! Don't hesitate to read the docs.
 
 # How do I install it ?

@@ -39,3 +39,7 @@ kramdown:
     coderay_tab_width: 4
     coderay_bold_every: 10
     coderay_css: style
+
+category_dir: tag
+category_title_prefix: tag
+tag_page_title_prefix: Articles

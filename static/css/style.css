@@ -418,7 +418,7 @@ body > header > div > nav > ul > li {
   border-left: 1px #A3A177 dotted;
 }
 body > header > div > nav > ul > li > a:hover {
-  background: rgba(252, 241, 96, 0.5) !important;
+  background: rgba(252, 241, 96, 0.25) !important;
 }
 body > header > div > nav > ul > li > a.current {
   background: rgba(255, 255, 255, 0.2);
@@ -469,10 +469,6 @@ aside.postInfo > div.related-posts {
   background: #EAECEF;
   color: #333333;
   box-shadow: 0 1px 0 #FFFFFF inset;
-}
-
-aside.postInfo > div.related-posts {
-  border-radius: 0px 0px 4px 4px;
 }
 
 section#content > #markdown-toc a {
@@ -531,22 +527,30 @@ section#content > ul{
   list-style: circle;
 }
 
-.meta > ul, section#content > ul#markdown-toc {
+section#content > ul#markdown-toc {
   list-style: none;
+  margin-left: -1em;
+  padding-bottom: 1.2em;
+}
+
+.meta > ul {
+  list-style: none;
+}
+
+.meta > ul > li {
+  margin-left: -1em;
 }
 
 .meta > ul > li:before, section#content > ul#markdown-toc > li:before {
   content: "∘  ";
 }
 
-.meta > ul > li:before {
-  margin-left: -10px;
-}
 section#content > #markdown-toc:before {
   content: "Table of contents";
   font-size: 1.6em;
   font-weight: normal;
   line-height: 2.8em;
+  margin-left: -1em;
 }
 
 aside.postInfo > div.related-posts {
@@ -668,7 +672,9 @@ div#main h1, div#main h2, div#main h3, div#main h4, div#main h5, div#main h6, se
 #content h6 {
   font-size: 1em;
 }
-
+aside.postInfo h3 {
+  padding-left: 15px
+}
 /** Classes and effects */
 #content pre, #content code {
   font-family: Monaco, monospace;

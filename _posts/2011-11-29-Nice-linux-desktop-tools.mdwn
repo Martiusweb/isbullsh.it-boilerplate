@@ -134,7 +134,7 @@ I wasn't satisfied by the ones available, so I have designed my own theme, based
 
 ![Ravenant Light](/static/img/empathy-theme.png)
 
-If you like what you see, you can download it on my [GitHub](https://github.com/BaltoRouberol/Ravenant-Light). Installation indications are provided in the Readme.
+If you like what you see, you can download it from my [GitHub](https://github.com/BaltoRouberol/Ravenant-Light). Installation instructions are provided in the Readme.
 
 # ImageTools
 

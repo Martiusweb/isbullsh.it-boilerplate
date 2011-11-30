@@ -138,7 +138,7 @@ If you like what you see, you can download it on my [GitHub](https://github.com/
 
 # ImageTools
 
-I often had to resize a bunch of photos, and I thought The Gimp was the right tool for that. Hum. I might have shot me in the foot if I wanted to be less productive. The anwser is simple: use the <code>convert</code> command of <code>imagemagick</code>, an awesome bash tool, provided in all Unix/Linux distribs.
+I often had to resize a bunch of photos, and I thought The Gimp was the right tool for that. Hum. I might have shot myself in the foot if I wanted to be less productive. The anwser is simple: use the <code>convert</code> command of <code>imagemagick</code>, an awesome bash tool, provided in all Unix/Linux distribs.
 
 I thus wrote small scripts using <code>imagemagick</code> for the following operations, which all apply to a **folder of photos**:
 

@@ -2,6 +2,7 @@
 title: Optimization of the Monty Python parody code
 tags:
   - python
+from: Montevideo  
 byline: Balto
 layout: post
 published: true

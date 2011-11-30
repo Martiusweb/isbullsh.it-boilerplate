@@ -2,6 +2,7 @@
 title: Some useful Linux desktop tools 
 tags:
   - linux
+from: Montevideo
 byline: Balto
 layout: post
 published: true
@@ -13,7 +14,7 @@ published: true
 One of the reason of the awesomness of Linux is the infinite number of nice tools you can install. It thus gives you this "feel like at home" fuzzy feeling. 
 Every time I use a friend's computer, I can't help but thinking "Man, it feels strange" : we're using the same distro, but both our laptops provide different experiences.
 
-The tools I hereby present are the one that make me feel at home.
+I hereby present the tools that make me feel at home.
 
 # Redshift
 

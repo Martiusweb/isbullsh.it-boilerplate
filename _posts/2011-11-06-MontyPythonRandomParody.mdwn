@@ -2,6 +2,7 @@
 title: How to randomly generate a Monty Python parody
 tags:
   - python
+from: Montevideo
 byline: Balto
 layout: post
 published: true

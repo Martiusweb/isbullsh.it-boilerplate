@@ -9,6 +9,7 @@ class: post
     <h3>About the article</h3>
     <ul>
       <li>Written by <a href="/contact/#{{page.byline|downcase}}">{{page.byline}}</a></li>
+      {% if page.from %}<li>From {{page.from|capitalize}}</li>{% endif %}
       <li>Published on {{page.date|date_to_string}}</li>
       {% if page.tags %}
       <li>Tags:
@@ -49,7 +50,7 @@ class: post
 <aside>
   <div class="nextprev">
     {% if page.previous %}
-    <a class="prev" href="{{ page.previous.url }}">{{ page.previous.title }} ←</a>
+    <a class="prev" href="{{ page.previous.url }}">← {{ page.previous.title }} ←</a>
     {% endif %}
     {% if page.next %}
     <a class="next" href="{{ page.next.url }}">→ {{ page.next.title }}</a>

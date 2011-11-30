@@ -49,8 +49,12 @@ body, button, input, select, textarea { font-family: sans-serif; color: #222; }
    Links
    ========================================================================== */
 
-a { color: #00e; }
-a:visited { color: #551a8b; }
+a {color: #222; text-decoration: none; }
+section#content a {border-bottom: 1px groove;}
+ul#markdown-toc a, .meta a, div.nextprev a, div.nextprev a {border-bottom: 1px dotted;}
+ul#markdown-toc a:hover, .meta a:hover, div.nextprev a:hover {border-bottom: 1px groove;}
+footer  a {color: #666666;}
+
 a:focus { outline: thin dotted; }
 
 /* Improve readability when focused and hovered in all browsers: people.opera.com/patrickl/experiments/keyboard/test */
@@ -404,7 +408,7 @@ body {
 
 /** Header */
 body > header {
-  background: rgba(252, 241, 96, 0.5); /* #FCF160 */
+  background: rgba(252, 241, 96, 0.3); /* #FCF160 */
   border-bottom: 1px #A3A177 solid;
 }
 body > header > div > nav > ul {
@@ -414,7 +418,7 @@ body > header > div > nav > ul > li {
   border-left: 1px #A3A177 dotted;
 }
 body > header > div > nav > ul > li > a:hover {
-  background: #FCF19A !important;
+  background: rgba(252, 241, 96, 0.5) !important;
 }
 body > header > div > nav > ul > li > a.current {
   background: rgba(255, 255, 255, 0.2);
@@ -448,6 +452,8 @@ div#main > footer {
   color: #666666;
   text-shadow: 1px 1px #FFFFFF;
 }
+
+
 
 /** Easter egg */
 body > p {
@@ -520,7 +526,21 @@ aside.postInfo {
 aside.postInfo > .meta {
   border-bottom: 1px #CCCCCC solid;
 }
-section#content > #markdown-toc {
+
+section#content > ul{
+  list-style: circle;
+}
+
+.meta > ul, section#content > ul#markdown-toc {
+  list-style: none;
+}
+
+.meta > ul > li:before, section#content > ul#markdown-toc > li:before {
+  content: "∘  ";
+}
+
+.meta > ul > li:before {
+  margin-left: -10px;
 }
 section#content > #markdown-toc:before {
   content: "Table of contents";
@@ -532,6 +552,7 @@ section#content > #markdown-toc:before {
 aside.postInfo > div.related-posts {
     border-bottom: 1px #CCCCCC solid;
 }
+
 #totoc a {
   color: #000000;
   text-shadow: 1px 1px #FFFFFF;

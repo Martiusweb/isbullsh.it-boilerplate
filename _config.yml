@@ -41,5 +41,4 @@ kramdown:
     coderay_css: style
 
 category_dir: tag
-category_title_prefix: tag
 tag_page_title_prefix: Articles

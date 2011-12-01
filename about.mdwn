@@ -17,7 +17,7 @@ of the blog (I can't say that for the content).
 
 This amazing website contains cool blog posts about tech and non-tech stuff.
 
-Here we can write stuff about us.
+We are good friends, who like to drink beer, eat cheese and write code. Some of us use Vim, and other use emacs. See? Tolerance.
 
 # Syndication
 

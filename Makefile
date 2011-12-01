@@ -1,2 +1,2 @@
 local:
-	jekyll . ./_site --auto --server --base-url '/'
+	ejekyll . ./_site --auto --server --base-url '/'

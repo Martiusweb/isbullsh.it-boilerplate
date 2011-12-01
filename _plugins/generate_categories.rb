@@ -64,7 +64,7 @@ module Jekyll
       self.data['tag']    = category
       # Set the title for this page.
       title_prefix             = site.config['tag_page_title_prefix'] || 'Articles'
-      self.data['title']       = "#{title_prefix} : #{category.capitalize}"
+      self.data['title']       = "#{title_prefix} #{category.capitalize}"
       # Set the meta-description for this page.
       meta_description_prefix  = site.config['category_meta_description_prefix'] || 'Category: '
       self.data['description'] = "#{meta_description_prefix}#{category}"

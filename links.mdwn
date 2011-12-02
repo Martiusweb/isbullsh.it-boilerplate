@@ -7,7 +7,12 @@ layout: content
 Good links we like.
 
  * [ItIsOld](http://isitold.com) : Check if your news is old before sending it to your friends
- * [Hacker News](http://http://news.ycombinator.com) : Your ultimate source of
-   information.
+ * [Hacker News](http://http://news.ycombinator.com) : Your ultimate source of information.
  * [InstaCSS](http://instacss.com) : Gimmeh teh CSS docs
  * [Distrowatch](http://distrowatch.com/) : Put the fun back into computing: use Linux, BSD.
+ * [Korben](http://korben.info) : Daily geeky news (French)
+ * [Reflets](reflets.info) : Topicality viewed by hackers, independant journalists and contributers (French)
+ * [Alt-Tab](http://alt-tab.org/) : Nonsense stuff
+ * [XKCD](http://xkcd.com/) : A webcomic of romance, sarcasm, math, and language
+ * [Le site du Zéro](http://bit.ly/fpx1zc) : ORLY?
+ * [Macromeme](http://macromeme.com/) : Jokes your parents don't get

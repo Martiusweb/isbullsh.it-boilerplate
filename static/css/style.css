@@ -557,7 +557,9 @@ section#content > ul#markdown-toc {
   margin-left: -1em;
   padding-bottom: 1.2em;
 }
-
+div.related-posts > ul {
+  margin-left: -1em;
+}
 .meta > ul,
 div.related-posts > ul {
   list-style: none;

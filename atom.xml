@@ -7,12 +7,8 @@ layout: nil
   <link type="application/atom+xml" rel="self"
     href="http://{{ site.baseurl }}/atom.xml"/>
   <updated>{{ site.time | date_to_xmlschema }}</updated>
-  <title>Un hacker chez les élans</title>
+  <title>atom.isbullsh.it blog</title>
   <id>http://{{ site.baseurl }}/</id>
-  <author>
-    <name>Paul</name>
-    <email>firstname@firstname.cx</email>
-  </author>
 
   {% for post in site.posts %}
   <entry>
@@ -21,7 +17,7 @@ layout: nil
     <title>{{ post.title | xml_escape }}</title>
     <updated>{{ post.date | date_to_xmlschema }}</updated>
     <author>
-      <name>paul@paul.cx (Paul ADENOT)</name>
+      <name>{{ post.byline | xml_escape }}</name>
       <uri>http://{{ site.baseurl }}/</uri>
     </author>
     <content type="html">{{ post.content | html_espace | xml_escape }}</content>

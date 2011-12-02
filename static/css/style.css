@@ -219,7 +219,6 @@ table { border-collapse: collapse; border-spacing: 0; }
          url('fonts/texgyrepagella-regular-webfont.svg#TeXGyrePagellaRegular') format('svg');
     font-weight: normal;
     font-style: normal;
-
 }
 
 @font-face {
@@ -231,7 +230,6 @@ table { border-collapse: collapse; border-spacing: 0; }
          url('fonts/texgyrepagella-italic-webfont.svg#TeXGyrePagellaItalic') format('svg');
     font-weight: normal;
     font-style: normal;
-
 }
 
 @font-face {
@@ -243,7 +241,6 @@ table { border-collapse: collapse; border-spacing: 0; }
          url('fonts/texgyrepagella-bold-webfont.svg#TeXGyrePagellaBold') format('svg');
     font-weight: normal;
     font-style: normal;
-
 }
 
 @font-face {
@@ -375,20 +372,20 @@ div#main > #totoc > a {
   text-decoration: none;
   font-size: 3em;
   -webkit-transition: text-shadow 1s ease-in-out;
-	-moz-transition: text-shadow 1s ease-in-out;
-	-o-transition: text-shadow 1s ease-in-out;
-	-ms-transition: text-shadow 1s ease-in-out;	
-	transition: text-shadow 1s ease-in-out;
+  -moz-transition: text-shadow 1s ease-in-out;
+  -o-transition: text-shadow 1s ease-in-out;
+  -ms-transition: text-shadow 1s ease-in-out; 
+  transition: text-shadow 1s ease-in-out;
   text-shadow: none;
 }
 
 div#main > #totoc > a:hover {
   opacity: 1;
   -webkit-transition: text-shadow 1s ease-in-out;
-	-moz-transition: text-shadow 1s ease-in-out;
-	-o-transition: text-shadow 1s ease-in-out;
-	-ms-transition: text-shadow 1s ease-in-out;	
-	transition: text-shadow 1s ease-in-out;
+  -moz-transition: text-shadow 1s ease-in-out;
+  -o-transition: text-shadow 1s ease-in-out;
+  -ms-transition: text-shadow 1s ease-in-out; 
+  transition: text-shadow 1s ease-in-out;
   cursor: pointer;
   text-shadow: 0px 0px 10px black;
 }
@@ -490,10 +487,10 @@ nav.tags {
 }
 
 nav.tags a {
-	-moz-transition: box-shadow 0.5s ease-in-out;
-	-ms-transition: box-shadow 0.5s ease-in-out;	
-	-o-transition: box-shadow 0.5s ease-in-out;
-	transition: box-shadow 0.5s ease-in-out;
+  -moz-transition: box-shadow 0.5s ease-in-out;
+  -ms-transition: box-shadow 0.5s ease-in-out;
+  -o-transition: box-shadow 0.5s ease-in-out;
+  transition: box-shadow 0.5s ease-in-out;
   -webkit-transition: box-shadow 0.5s ease-in-out;
   background: #EAECEF;
   border-radius: 4px;
@@ -510,10 +507,10 @@ nav.tags a {
 nav.tags a:hover {
   box-shadow: 2px 2px 10px #888888;
   -webkit-transition: box-shadow 0.5s ease-in-out;
-	-moz-transition: box-shadow 0.5s ease-in-out;
-	-o-transition: box-shadow 0.5s ease-in-out;
-	-ms-transition: box-shadow 0.5s ease-in-out;	
-	transition: box-shadow 0.5s ease-in-out;
+  -moz-transition: box-shadow 0.5s ease-in-out;
+  -o-transition: box-shadow 0.5s ease-in-out;
+  -ms-transition: box-shadow 0.5s ease-in-out;
+  transition: box-shadow 0.5s ease-in-out;
 }
 aside.postInfo {
   padding-left: 0.5em;
@@ -590,10 +587,10 @@ aside.postInfo > div.related-posts {
   box-shadow: 3px 3px 8px #888888;
 }
 .nextprev a {
-  white-space: nowrap;  
-  width: 15em;                     
-  overflow: hidden;              /* "overflow" value must be different from "visible" */   
-  text-overflow:    ellipsis;  
+  white-space: nowrap;
+  width: 15em;
+  overflow: hidden;
+  text-overflow: ellipsis;
   margin: 1em;
 }
 
@@ -707,7 +704,7 @@ body > header > div > h1 > a {
   -webkit-transition: text-shadow 400ms ease, color 400ms ease;
   -o-transition: text-shadow 400ms ease, color 400ms ease;
 }
-#content a:not(.tags) {
+#content a:not(nav.tags) {
   transition: background 250ms ease;
   -moz-transition: background 250ms ease;
   -webkit-transition: background 250ms ease;

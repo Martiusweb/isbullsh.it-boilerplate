@@ -7,7 +7,7 @@ layout: nil
   <link type="application/atom+xml" rel="self"
     href="http://{{ site.baseurl }}/atom.xml"/>
   <updated>{{ site.time | date_to_xmlschema }}</updated>
-  <title>atom.isbullsh.it blog</title>
+  <title>atom.isbullsh.it</title>
   <id>http://{{ site.baseurl }}/</id>
 
   {% for post in site.posts %}

@@ -49,10 +49,24 @@ body, button, input, select, textarea { font-family: sans-serif; color: #222; }
    Links
    ========================================================================== */
 
-a {color: #222; text-decoration: none; }
-section#content a {border-bottom: 1px groove;}
-ul#markdown-toc a, .meta a, div.nextprev a, div.nextprev a {border-bottom: 1px dotted;}
-ul#markdown-toc a:hover, .meta a:hover, div.nextprev a:hover {border-bottom: 1px groove;}
+a {
+  color: #222;
+  text-decoration: none;
+  border-bottom: rgba(128,128,128,0) 1px dotted;
+  transition: 1000ms;
+  -moz-transition: 1000ms;
+  -webkit-transition: 1000ms;
+  -o-transition: 1000ms;
+}
+
+a:hover {
+  border-bottom: rgba(128, 128, 128, 1) 1px dotted;
+  transition: 1000ms;
+  -moz-transition: 1000ms;
+  -webkit-transition: 1000ms;
+  -o-transition: 1000ms;
+}
+
 footer  a {color: #666666;}
 
 a:focus { outline: thin dotted; }
@@ -334,6 +348,11 @@ div#main > section#content {
   line-height: 1.4em;
 }
 
+div#main > section#content a {
+  font-family: Monospace;
+  font-size: 0.8em;
+}
+
 /** Easter egg */
 body > p {
   text-align: center;
@@ -405,7 +424,7 @@ body {
 
 /** Header */
 body > header {
-  background: rgba(252, 241, 96, 0.3); /* #FCF160 */
+  background: rgba(128, 128, 128, 0.3); /* #FCF160 */
   border-bottom: 1px #A3A177 solid;
 }
 body > header > div > nav > ul {
@@ -415,7 +434,7 @@ body > header > div > nav > ul > li {
   border-left: 1px #A3A177 dotted;
 }
 body > header > div > nav > ul > li > a:hover {
-  background: rgba(252, 241, 96, 0.25) !important;
+  background: rgba(128, 128, 128, 0.3) !important;
 }
 body > header > div > nav > ul > li > a.current {
   background: rgba(255, 255, 255, 0.2);
@@ -466,10 +485,6 @@ aside.postInfo > div.related-posts {
   background: #EAECEF;
   color: #333333;
   box-shadow: 0 1px 0 #FFFFFF inset;
-}
-
-section#content > #markdown-toc a {
-  background: none;
 }
 
 aside.postInfo > div:last-child {
@@ -683,16 +698,12 @@ aside.postInfo h3 {
   text-shadow: 1px 1px #DDDDDD;
 }
 #content a:link, #content a:active, #content a:visited {
-  background: rgba(252, 241, 96, 0.2);
-  /*
   text-decoration: none;
+  /*background: rgba(128, 128, 128, 0.3);*/
+  /*
   border-bottom: 1px #333333 dotted;
   */
 }
-#content a:hover {
-  background: rgba(252, 241, 96, 0.5);
-}
-
 /* Sexy effects */
 body > header a {
   transition: background 400ms ease;

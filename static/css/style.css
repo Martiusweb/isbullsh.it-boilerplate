@@ -437,7 +437,7 @@ body {
 
 /** Header */
 body > header {
-  background: #EAECEF;
+  background: rgba(205,206,209, 0.3);
   border-bottom: 1px #A3A177 solid;
 }
 body > header > div > nav > ul {
@@ -446,11 +446,7 @@ body > header > div > nav > ul {
 body > header > div > nav > ul > li {
   border-left: 1px #A3A177 dotted;
 }
-body > header > div > nav > ul > li > a:hover {
-  background: rgba(128, 128, 128, 0.3) !important;
-}
 body > header > div > nav > ul > li > a.current {
-  background: rgba(255, 255, 255, 0.2);
   font-weight: bold;
 }
 body > header > div > h1 > a:hover {

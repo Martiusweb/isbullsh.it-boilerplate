@@ -359,11 +359,11 @@ div#main > section#content li > a {
 
 div#main > section#content p a:hover,
 div#main > section#content li > a:hover {
-  transition: 1000ms;
-  -moz-transition: 1000ms;
-  -webkit-transition: 1000ms;
-  -o-transition: 1000ms;
-  text-shadow: 0px 0px 4px #666;
+  transition: 500ms;
+  -moz-transition: 500ms;
+  -webkit-transition: 500ms;
+  -o-transition: 500ms;
+  text-shadow: 0px 1px 1px #888;
 }
 
 /** Easter egg */
@@ -558,7 +558,8 @@ section#content > ul#markdown-toc {
   padding-bottom: 1.2em;
 }
 
-.meta > ul {
+.meta > ul,
+div.related-posts > ul {
   list-style: none;
 }
 
@@ -566,7 +567,9 @@ section#content > ul#markdown-toc {
   margin-left: -1em;
 }
 
-.meta > ul > li:before, section#content > ul#markdown-toc > li:before {
+.meta > ul > li:before, 
+section#content > ul#markdown-toc > li:before,
+div.related-posts li:before {
   content: "∘  ";
 }
 

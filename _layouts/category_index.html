@@ -4,7 +4,7 @@ class: list
 ---
 
 <ol>
-  <p>Here is a list of the latest articles about {{page.tag}}</p>
+  <p>Here is a list of our latest articles about {{page.tag}}</p>
   {% for post in site.tags[page.tag] %}
   <li>
   <article><h2><a href="{{post.url}}">{{post.title}}</a></h2>

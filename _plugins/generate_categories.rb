@@ -53,21 +53,27 @@ module Jekyll
     #  +base+         is the String path to the <source>.
     #  +category_dir+ is the String path between <source> and the category folder.
     #  +category+     is the category currently being processed.
-    def initialize(site, base, category_dir, category)
+    def initialize(site, base, category_dir, category, *all_tags)
       @site = site
       @base = base
       @dir  = category_dir
       @name = 'index.html'
       self.process(@name)
-      # Read the YAML data from the layout page.
-      self.read_yaml(File.join(base, '_layouts'), 'category_index.html')
-      self.data['tag']    = category
-      # Set the title for this page.
-      title_prefix             = site.config['tag_page_title_prefix'] || 'Articles'
-      self.data['title']       = "#{title_prefix} #{category.capitalize}"
-      # Set the meta-description for this page.
-      meta_description_prefix  = site.config['category_meta_description_prefix'] || 'Category: '
-      self.data['description'] = "#{meta_description_prefix}#{category}"
+      if category != "index"
+        # Read the YAML data from the layout page.
+        self.read_yaml(File.join(base, '_layouts'), 'category_index.html')
+        self.data['tag']         = category
+        # Set the title for this page.
+        title_prefix             = site.config['tag_page_title_prefix'] || 'Articles'
+        self.data['title']       = "#{title_prefix} #{category.capitalize}"
+        # Set the meta-description for this page.
+        meta_description_prefix  = site.config['category_meta_description_prefix'] || 'Category: '
+        self.data['description'] = "#{meta_description_prefix}#{category}"
+      elsif all_tags
+        self.read_yaml(File.join(base, '_layouts'), 'category_list.html')
+        self.data['tag'] = "tag_index"
+        self.data['title']     = site.config['tag_list_page_title'] || 'List of article tags'
+      end
     end
     
   end
@@ -81,22 +87,29 @@ module Jekyll
     #
     #  +category_dir+ is the String path to the category folder.
     #  +category+     is the category currently being processed.
-    def write_category_index(category_dir, category)
-      index = CategoryIndex.new(self, self.source, category_dir, category)
+    def write_category_index(category_dir, category, *all_tags)
+      if all_tags
+        index = CategoryIndex.new(self, self.source, category_dir, category, all_tags)
+      else
+        index = CategoryIndex.new(self, self.source, category_dir, category)
+      end
       index.render(self.layouts, site_payload)
       index.write(self.dest)
       # Record the fact that this page has been added, otherwise Site::cleanup will remove it.
       self.pages << index
     end
+      
     
     # Loops through the list of category pages and processes each one.
     def write_category_indexes
       if self.layouts.key? 'category_index'
         dir = self.config['category_dir'] || 'categories'
         self.tags.keys.each do |category| # hack: categories -> tags
-          self.write_category_index(File.join(dir, category), category)
+          self.write_category_index(File.join(dir, category), category)  
         end
-        
+        all_tags = self.tags.keys
+        self.write_category_index(File.join(dir), "index", all_tags)
+
       # Throw an exception if the layout couldn't be found.
       else
         throw "No 'category_index' layout found."
@@ -158,5 +171,5 @@ module Jekyll
     end
     
   end
-  
+
 end

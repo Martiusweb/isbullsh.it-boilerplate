@@ -180,7 +180,7 @@ All problems are unique, and these techniques will not always be the solution. I
 
 # Thanks
 
-If all that was of any interest to you, you shoud (must !) then check out the outstanding paper written by [@ianozsvald](https://twitter.com/ianozsvald) : [High Performance Python](https://github.com/ianozsvald/EuroPython2011_HighPerformanceComputing/blob/master/docs/_build/latex/HighPerformancePythonfromTrainingatEuroPython2011.pdf?raw=true.). (All sources available on his [GitHub](https://github.com/ianozsvald/EuroPython2011_HighPerformanceComputing)) All techniques named in this article are more deeply covered. (This is how I first got into Python optimization, and it turns out I will soon work with him on the [StrongSteam project](strongsteam.com) =)
+If all that was of any interest to you, you shoud (must !) then check out the outstanding paper written by [@ianozsvald](https://twitter.com/ianozsvald) : [High Performance Python](https://github.com/ianozsvald/EuroPython2011_HighPerformanceComputing/blob/master/docs/_build/latex/HighPerformancePythonfromTrainingatEuroPython2011.pdf?raw=true.). (All sources available on his [GitHub](https://github.com/ianozsvald/EuroPython2011_HighPerformanceComputing)) All techniques named in this article are more deeply covered. (This is how I first got into Python optimization, and it turns out I will soon work with him on the [StrongSteam project](http://strongsteam.com) =)
 
 Thanks Ian for all your advice on this project, and for all your time !
 

@@ -6,5 +6,5 @@ class: list
 <p>All these people are cool contributers. Some of them are single (send your resume).</p>
 <ul>
 {% for byline in page.bylines %}
-<li><a href="/contact/#{{byline}}">{{byline|capitalize}}</a></li>
+<li><a href="/by/{{byline|downcase}}">{{byline|capitalize}}</a></li>
 {% endfor %}

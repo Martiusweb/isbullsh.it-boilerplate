@@ -28,14 +28,13 @@ module Jekyll
         self.read_yaml(File.join(base, '_layouts'), 'posts_by_author.html')
         self.data['byline']      = author.capitalize
         # Set the title for this page.
-        title_prefix             =  'Articles by'
-        self.data['title']       = "#{title_prefix} #{author.capitalize}"
+        title_prefix             =  'Articles by '
+        self.data['title']       = "#{title_prefix}#{author.capitalize}"
         # Set the meta-description for this page.
-        self.data['description'] = self.data['title'] 
-
-      end
+        self.data['description'] = self.data['title']
+        
+      end    
     end
-    
   end
   
   
@@ -61,7 +60,7 @@ module Jekyll
     # Loops through the list of author and processes each one.
     def write_authors_index
       prefix = self.config['post_by_author_dir']
-      authors = self.config['authors']
+      authors = self.config['authors'].sort
       global = false
       authors.each do |author|
         self.write_author_index(File.join(prefix, author), author, global) 

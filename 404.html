@@ -6,9 +6,10 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>{{page.title}} - *.isBullsh.it</title>
-  <meta name="description" content="{{page.description}}">
-  <meta name="author" content="{% if page.author %}{{page.author}}{% else %}Balto, Martin, Nical, Paul, Tibal{% endif %}">
+  <title>Your URL is bullshit ! - *.isBullsh.it</title>
+  <meta name="description" content="">
+
+  <meta name="author" content="Balto, Martin, Nical, Paul, Tibal">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="/static/css/style.css">
   <link rel="stylesheet" href="/static/css/syntax.css">
@@ -16,30 +17,50 @@
   <link rel="alternate" type="application/atom+xml" title="isBullsh.it Atom feed" href="/atom.xml"  />
   <link type="text/css" rel="stylesheet" href="/static/js/libs/magnify.js/magnify.css">
   <script src="/static/js/libs/modernizr-2.0.6.min.js"></script>
+
   <script src="/static/js/static.js"></script>
   <script src="/static/js/libs/magnify.js/magnify.js"></script>
 </head>
 
-<body{% if page.class %} class="{{page.class}}"{% endif %}
+<body
 onload="init_magnify(); init_scroll()">
 <header>
   <div>
     <h1><a href="/"><span class="tag">*</span>.isBullsh.it</a></h1>
     <nav>
-      {% include _nav.html %}
+
+      
+<ul>
+  <li><a href="/">Home</a></li>
+  <li><a href="/archives/">Archives</a></li>
+  <li><a href="/links/">Links</a></li>
+  <li><a href="/contact/">Contact</a></li>
+  <li><a href="/about/">About</a></li>
+
+</ul>
+
     </nav>
   </div>
 </header>
 
 <div id="main" role="main">
   <header>
-    <h2>{{page.title}}</h2>
+    <h2>Your URL is bullshit !</h2>
   </header>
-  {{content}}
+  <section id="content">
+
+<p>Do you see any Teletubbies in here?</p>
+<p>Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it?</p>
+<p>No? Well, that's what you see at a toy store. And you must think you're in a toy store, because <b>your URL is bullshit</b>.</p>
+
+
   </section>
 	<footer>
-  {% include _footer.html %}
+  <p><a href="/">*.isBullsh.it</a> by Balto, Martin, Nical, Paul and Tibal.</p>
+<p>We love copyleft and therefore this blog is licensed under CC BY-SA-NC.</p>
+
 	</footer>
+
 </div>
 <p>Wow! There's something here!</p>
 </body>

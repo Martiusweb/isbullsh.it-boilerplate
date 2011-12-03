@@ -1,0 +1,26 @@
+---
+layout: nil
+---
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <link href="http://{{ site.baseurl }}/"/>
+  <link type="application/atom+xml" rel="self"
+    href="http://{{ site.baseurl }}/atom.xml"/>
+  <updated>{{ site.time | date_to_xmlschema }}</updated>
+  <title>atom.isbullsh.it</title>
+  <id>http://{{ site.baseurl }}/</id>
+
+  {% for post in site.posts %}
+  <entry>
+    <id>http://{{ site.baseurl }}{{ post.id }}</id>
+    <link type="text/html" rel="alternate" href="http://{{ site.baseurl }}{{ post.url }}"/>
+    <title>{{ post.title | xml_escape }}</title>
+    <updated>{{ post.date | date_to_xmlschema }}</updated>
+    <author>
+      <name>{{ post.byline | xml_escape }}</name>
+      <uri>http://{{ site.baseurl }}/</uri>
+    </author>
+    <content type="html">{{ post.content | html_espace | xml_escape }}</content>
+  </entry>
+  {% endfor %}
+</feed>

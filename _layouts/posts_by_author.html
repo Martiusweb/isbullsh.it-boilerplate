@@ -3,13 +3,16 @@ layout: content
 class: list
 ---
 
+<p>Here is a list of all articles written by <a href="/contact/#{{page.byline|downcase}}">{{page.byline}}</a>.</p>
 <ol>
+  {% assign any_post = false %}
   {% for post in site.posts %}
+    {% if post.byline == page.byline %}
   <li>
   <article><h2><a href="{{post.url}}">{{post.title}}</a></h2>
   <div class="meta">
     <ul>
-      <li>Published on {{post.date|date_to_string}} by <a href="/by/{{post.byline|downcase}}">{{post.byline}}</a></li>
+      <li>Published on {{post.date|date_to_string}}</li>
       {% if post.tags %}
       <li>Tags:
         <nav class="tags">
@@ -20,5 +23,12 @@ class: list
   </div>
   {% if post.abstract %}<p>{{post.abstract}}</p>{% endif %}
   </article></li>
+    {% assign any_post = true %}
+    {% endif %}
   {% endfor %}
 </ol>
+
+{% if any_post == false %}
+<p>{{page.byline}} has not written anything yet. Because he's a purulent pussy.</p>
+{% endif %}
+  

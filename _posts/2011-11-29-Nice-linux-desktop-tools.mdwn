@@ -1,0 +1,160 @@
+---
+title: Some useful Linux desktop tools 
+tags:
+  - linux
+from: Montevideo
+byline: Balto
+layout: post
+published: true
+---
+
+- stripped
+{:toc}
+
+One of the reason of the awesomness of Linux is the infinite number of nice tools you can install. It thus gives you this "feel like at home" fuzzy feeling. 
+Every time I use a friend's computer, I can't help but thinking "Man, it feels strange" : we're using the same distro, but both our laptops provide different experiences.
+
+I hereby present the tools that make me feel at home.
+
+# Redshift
+
+If you use your computer at night (coders and gamers, hear me out :), you sometimes might feel tired by the brightness of the screen. At night, the screen light can be quite intense and agressive for your eyes. That's why I use a small tool called Redshift, which shifts the screen colors towards a red-ish ambiance when the night falls, by decreasing the color's temperature.
+
+To dowload Redshift, you must add a ppa to your software sources :
+{% highlight bash %}
+$ sudo add-apt repository ppa:jonls/redshift-ppa
+$ sudo apt-get update
+$ sudo apt-get install redshift
+{% endhighlight %}
+
+Now that redshift is installed, you must find out what your latitude and longitude are. On Ubuntu, this can be accomplished using the clock and adding your location. This should do the trick.
+
+You can now call redhsift using this command in a terminal (replacing the -l values by your latitude and longitude).
+{% highlight bash %}
+$ gtk-redshift -l 46.71:4.95 -t 6500:4500
+{% endhighlight %}
+
+The -t options represent the temperature range (6500 being no shifting at all). Do not hesitate to play around with the lower boud, to find one you like.
+
+You can of course add Redshift to your startup applications, via System > Preferences > Startup applications, and adding a new one, putting the <code>gtk-redshift</code> command you find appropriate.
+
+# Glippy 
+
+Glippy is a life-savior tool which stores a history of your copy operations. It's called a *clipboard manager*. It can store text (from CTRL-C and mouse clipboard) and even files and images. You can then browse your copy history, and select back an old one, just as if you just had copied it.
+
+I don't use these functionality, but apparently Glippy can also upload texts to [pastebin](http://pastebin.com) and images to [imgur](http://imgur.com).
+
+To install it, you must add the ppa ppa:bikooo/glippy, using the same instructions as given in the [previous section](#redshift), and then
+
+{% highlight bash %}
+$ sudo apt-get install glippy
+{% endhighlight %}
+
+You can of course add it to your startup applications (the command is <code>glippy -s</code>).
+
+# Terminator 
+
+Terminator is a extremely useful tool providing the possibility of displaying multiple terminals in a single window. It relieves you from the pain of Alt-Tabing like crazy :)
+Here is an example :
+![Terminator example](/static/img/terminator.png)
+
+The main commands are 
+
+ * CTRL+Shift+E : split the terminal vertically
+ * CTRL+Shift+O : split the terminal horizontally
+ * CTRL+Shift+N : shift to next terminal
+ * CTRL+Shift+P : shift to previous terminal
+ * CTRL+Shift+Z : zoom on active terminal
+ * CTRL+Shift+T : open new tab
+ * CTRL+Shift+Q : close all terminals
+ * CTRL+Shift+V : paste in terminal
+
+You can also write your own configuration, in the <code>~/.config/terminator/config</code> file. Mine is pretty basic :
+
+    [global_config] 
+      handle_size = 1      
+      maximise = True
+      borderless = False
+      focus = 'system' # use the same focus logic that the one specified in your system preferences
+    
+    [profiles]
+       [[default]]
+    	     background_type = transparent
+         background_darkness = 0.9
+         force_no_bell = True
+	     show_titlebar = False
+	     color_scheme = 'white_on_black'
+	     #use_theme_color = False
+ 	     #foreground_color = #FFFFFF
+
+    [keybindings]
+    full_screen = <Ctrl><Shift>F11
+
+    ## Uncomment if you use other shell than bash (zsh, ...)
+    #use_custom_command = true
+    #custom_command = /bin/zsh
+
+Terminator is installable through the Ubuntu Sofware manager or by installing the <code>terminator</code> package
+
+# Synapse
+
+Synapse is like GNOME Do, but good. It's powered by Zeitgeist (more infos [here](http://zeitgeist-project.com/about/)). The idea is to identify patterns in your way of interacting with your computer, like websites you often visit, music you like, files you consult a lot, etc, and make them quickly available, through a minimalistic interface.
+
+The default set of plugins shipped with Synapse are :
+ 
+ * Applications : searches your files
+ * Banshee : play/enqueue music files in Banshee
+ * Commands : runs any command 
+ * Devhelp : search for documentation
+ * Dictionnary : find definition of words
+ * Directory search : open commonly used directory (Watch out, regular porn watchers :)
+ * Gnome session : log out, shut down, restart
+ * Hybrid search : complete Zeitgeist results by lokking for similar files
+ * Rhythmbox : play/enqueue music files from RythmBox
+ * Upower : suspend & hibernate your computer
+ * Zeitgzist : search anything logged by Zeitgeist
+
+NB : these explanations are brought to you by [OMG!Ubuntu](http://www.omgubuntu.co.uk/2010/11/synapse-gnome-do-launcher-app-review-ubuntu/).
+
+This is what I get for the keyword *Python* :
+![Synapse screenshot](/static/img/synapse-python.png)
+
+Every type of file is handled by the default program it is associated with. For example, if I load a .mp3, it would open VLC, a .py would open emacs, a .pdf will open evince, etc.
+
+To download it, add the ppa ppa:synapse-core/ppa, update, and install <code>synapse</code>.
+By default, you invoke it with the CTRL+Space combination.
+
+# Empathy
+
+I don't like Gtalk. I find it annoying to have multiple windows, one for each person you talk to. It just consumes too much space. Moreover, I find the Gmail interface too heavy for my small uruguayan connection... All that convinced me to swicth to Empathy, eventhough I didn't like the interface that much neither.
+
+Empathy is the equivalent of pidgin. It is compatible with a lot of protocols (Google Talk, MSN, IRC, Yahoo, Facebook, ...) and it's light and fast. It can agregate contacts from different accounts, which is quite nice. You can personalise it, using default themes, or installing one from [Gnome-Look](https://live.gnome.org/Empathy/Themes). 
+
+I wasn't satisfied by the ones available, so I have designed my own theme, based on Ravenant-Dust, called Ravenant Light. 
+
+![Ravenant Light](/static/img/empathy-theme.png)
+
+If you like what you see, you can download it from my [GitHub](https://github.com/BaltoRouberol/Ravenant-Light). Installation instructions are provided in the Readme.
+
+# ImageTools
+
+I often had to resize a bunch of photos, and I thought The Gimp was the right tool for that. Hum. I might have shot myself in the foot if I wanted to be less productive. The anwser is simple: use the <code>convert</code> command of <code>imagemagick</code>, an awesome bash tool, provided in all Unix/Linux distribs.
+
+I thus wrote small scripts using <code>imagemagick</code> for the following operations, which all apply to a **folder of photos**:
+
+ * resizing via given ratio
+ * format conversion
+ * watermarking
+ * convert to "black and white" (GrayScale)
+ 
+These scripts are available on my [GitHub](https://github.com/BaltoRouberol/ImageTools). 
+
+NB: I now find the watermarking and B&W conversion quite useless, but I happen to use the format conversion and the resize scripts all the time, so I think it's worth mentioning. 
+
+NB2 : upgrade your mind reading the [imagemagick doc](http://www.imagemagick.org/script/index.php).
+
+# Conclusion
+
+> "Know thyself"
+
+You know best what you need, and that's why every config is different. Do not hesitate to personalise tools to adjust them to your needs! You'll be much more efficient in an environnement you know and you feel good into.

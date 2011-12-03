@@ -39,3 +39,16 @@ kramdown:
     coderay_tab_width: 4
     coderay_bold_every: 10
     coderay_css: style
+
+category_dir:          tag
+tag_page_title_prefix: Latest articles from
+tag_list_page_title:   List of article tags
+
+authors:
+  - balto
+  - martin
+  - paul
+  - nicolas
+  - thibaut
+
+post_by_author_dir: by

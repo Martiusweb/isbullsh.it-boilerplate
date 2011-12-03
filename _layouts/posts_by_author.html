@@ -1,0 +1,20 @@
+---
+layout: content
+class: list
+---
+
+<p>Here is a list of all articles written by {{page.byline}}:</p>
+<ul>
+  {% assign any_post = false %}
+  {% for post in site.posts %}
+    {% if post.byline == page.byline %}
+    <li><a href={{post.url}}>{{post.title}}</a></li>
+    {% assign any_post = true %}
+    {% endif %}
+  {% endfor %}
+</ul>
+
+{% if any_post == false %}
+<p>{{page.byline}} has not written anything yet. Becase he's a purulent pussy.</p>
+{% endif %}
+  

@@ -41,7 +41,7 @@ kramdown:
     coderay_css: style
 
 category_dir:          tag
-tag_page_title_prefix: Latest articles from
+tag_page_title_prefix: Latest articles about
 tag_list_page_title:   List of article tags
 
 authors:

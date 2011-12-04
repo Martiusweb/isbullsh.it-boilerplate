@@ -20,7 +20,7 @@ layout: nil
       <name>{{ post.byline | xml_escape }}</name>
       <uri>http://{{ site.baseurl }}/</uri>
     </author>
-    <content type="html">{{ post.content | html_espace | xml_escape }}</content>
+    <content type="html">{{ post.content | html_escape | xml_escape }}</content>
   </entry>
   {% endfor %}
 </feed>

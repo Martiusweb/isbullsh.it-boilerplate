@@ -7,13 +7,19 @@ layout: content
 You can talk to us or buy us a beer (let me be clear: one beer each). We love to
 receive tweets or emails from you folks!
 
- * [@padenot](https://twitter.com/padenot/) && <span class="obf">xc.luap@luap</span>
+ * [@padenot](https://twitter.com/padenot/) && <span
+ class="obf">xc.luap@luap</span>. I blog about strange swedish things at
+ <http://blog.paul.cx>, and I code on [Github](http://git.io/padenot). I ♡
+ unicode.
 
- * Oh hai, I'm [Balto](http://balthazar.rouberol.eu "Personal page"). I like to [tweet](https://twitter.com/BaltoRouberol/) and to check if you've sent me some spam at  <span
-   class="obf">ue.lorebuor@b</span>.
+ * Oh hai, I'm [Balto](http://balthazar.rouberol.eu "Personal page"). I like to
+ [tweet](https://twitter.com/BaltoRouberol/) and to check if you've sent me some
+ spam at  <span class="obf">ue.lorebuor@b</span>.
 
  * Hi, I'm Martin. I blog at [martiusweb.net](http://www.martiusweb.net), tweet
    as [@MartiusWeb](https://twitter.com/MartiusWeb) and you can e-mail me  at <span
    class="obf">ten.bewsuitram@suitram</span>.
 
- * Tibal ==> [Homepage](http://thibautvuillemin.com), [Code](https://github.com/tvuillemin), [Tweets](https://twitter.com/semprobe) and Mail: <span class="obf">moc.nimelliuvtuabiht@tcatnoc</span>
+ * Tibal → [Homepage](http://thibautvuillemin.com),
+ [Code](https://github.com/tvuillemin), [Tweets](https://twitter.com/semprobe)
+ and Mail: <span class="obf">moc.nimelliuvtuabiht@tcatnoc</span>

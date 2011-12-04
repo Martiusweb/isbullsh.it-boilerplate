@@ -17,7 +17,7 @@ of the blog (I can't say that for the content).
 
 This amazing website contains cool blog posts about tech and non-tech stuff.
 
-We are good friends, who like to drink beer, eat cheese and write code. Some of us use Vim, and other use emacs. See? Tolerance.
+We are good friends, who like to drink beer, eat cheese and write code. Some of us use Vim, and others use emacs. See? Tolerance.
 
 # What CMS do you use?
 None. We think that CMS are bullshit. We prefer to use [Jekyll](https://github.com/mojombo/jekyll/wiki), a nice Ruby blog aware, static site generator, also in charge of powering [GitHub Pages](http://pages.github.com/).

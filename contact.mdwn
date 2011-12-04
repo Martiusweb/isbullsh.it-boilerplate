@@ -12,7 +12,7 @@ receive tweets or emails from you folks!
  <http://blog.paul.cx>, and I code on [Github](http://git.io/padenot). I ♡
  unicode.
 
- * Oh hai, I'm [Balto](http://balthazar.rouberol.eu "Personal page"). I like to
+ * Oh hai, I'm [Balto](http://page.brouberol.imap.cc "Personal page"). I like to
  [tweet](https://twitter.com/BaltoRouberol/) and to check if you've sent me some
  spam at  <span class="obf">ue.lorebuor@b</span>.
 

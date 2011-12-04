@@ -24,3 +24,4 @@ Current contributors are :
  - Tag names (in article files) must be in lower-case
  - Add any new author to _config.yml, parameter "author"
  - Posts naming convention : YYYY-MM-DD-First-word-with-uppercase.mdwn
+ - absolute path in img src, for images to display in feeds

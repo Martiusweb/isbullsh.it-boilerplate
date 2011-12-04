@@ -62,7 +62,7 @@ $ runsnake proba.prof
 
 to generate a nice output like this (sorry for the flashy green >_<) :
 
-![runsnakerun output](/static/img/runsnake_profile.png)
+![runsnakerun output](http://isbullsh.it//static/img/runsnake_profile.png)
 
 We hence can have a (rather) nice graphic view of the profile results previously obtained with the profile module.
 

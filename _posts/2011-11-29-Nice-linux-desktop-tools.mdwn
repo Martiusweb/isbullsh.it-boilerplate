@@ -56,7 +56,7 @@ You can of course add it to your startup applications (the command is <code>glip
 
 Terminator is a extremely useful tool providing the possibility of displaying multiple terminals in a single window. It relieves you from the pain of Alt-Tabing like crazy :)
 Here is an example :
-![Terminator example](/static/img/terminator.png)
+![Terminator example](http://isbullsh.it/static/img/terminator.png)
 
 The main commands are 
 
@@ -117,7 +117,7 @@ The default set of plugins shipped with Synapse are :
 NB : these explanations are brought to you by [OMG!Ubuntu](http://www.omgubuntu.co.uk/2010/11/synapse-gnome-do-launcher-app-review-ubuntu/).
 
 This is what I get for the keyword *Python* :
-![Synapse screenshot](/static/img/synapse-python.png)
+![Synapse screenshot](http://isbullsh.it//static/img/synapse-python.png)
 
 Every type of file is handled by the default program it is associated with. For example, if I load a .mp3, it would open VLC, a .py would open emacs, a .pdf will open evince, etc.
 
@@ -132,7 +132,7 @@ Empathy is the equivalent of pidgin. It is compatible with a lot of protocols (G
 
 I wasn't satisfied by the ones available, so I have designed my own theme, based on Ravenant-Dust, called Ravenant Light. 
 
-![Ravenant Light](/static/img/empathy-theme.png)
+![Ravenant Light](http://isbullsh.it//static/img/empathy-theme.png)
 
 If you like what you see, you can download it from my [GitHub](https://github.com/BaltoRouberol/Ravenant-Light). Installation instructions are provided in the Readme.
 

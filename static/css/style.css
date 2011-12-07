@@ -759,6 +759,10 @@ body > header > div > h1 > a {
 section#content > ol > li {
   list-style: none outside none;
 }
+
+/* Importations */
+@import url('syntax.css');
+
 /* =============================================================================
    Non-semantic helper classes
    Please define your styles before this section.

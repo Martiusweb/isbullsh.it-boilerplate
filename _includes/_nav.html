@@ -1,6 +1,6 @@
 {% capture parsed_url %}{{page.url|remove_first:'/'|truncate:5,''}}{% endcapture %}
 <ul>
-  <li><a href="/"{%if parsed_url == "index" %} class="current"{% endif %}>Home</a></li>
+  <li><a href="http://isbullsh.it/"{%if parsed_url == "index" %} class="current"{% endif %}>Home</a></li>
   <li><a href="/archives/"{%if parsed_url == "archi" %} class="current"{% endif %}>Archives</a></li>
   <li><a href="/links/"{%if parsed_url == "links" %} class="current"{% endif %}>Links</a></li>
   <li><a href="/contact/"{%if parsed_url == "conta" %} class="current"{% endif %}>Contact</a></li>

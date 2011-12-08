@@ -15,7 +15,7 @@ class: post
       <li>Tags:
 	<nav class="tags">
         {% for tag in page.tags %}
-	<a href="http://isbullsh.it/tag/{{tag|downcase}}">{{tag|capitalize}}</a>
+	<a href="http://{{tag|downcase}}.isbullsh.it/">{{tag|capitalize}}</a>
 	{% endfor %}
       </nav>
       {% endif %}

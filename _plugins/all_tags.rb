@@ -10,7 +10,7 @@ module Jekyll
         post.tags.each do |tag|
           if tags.include?(tag)==false
             tags.push(tag)
-            result << "<li><a href='/tag/#{tag}'>#{tag.capitalize}</a></li>"
+            result << "<li><a href='http://#{tag}.isbullsh.it'>#{tag.capitalize}</a></li>"
           end
         end
       end

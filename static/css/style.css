@@ -499,7 +499,10 @@ div#main > footer {
   text-shadow: 1px 1px #FFFFFF;
 }
 
-
+/** Prelude content */
+div#main #prelude {
+  border-bottom: 1px #CCCCCC solid;
+}
 
 /** Easter egg */
 body > p {

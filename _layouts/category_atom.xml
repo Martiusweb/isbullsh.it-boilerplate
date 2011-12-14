@@ -7,10 +7,10 @@ layout: nil
   <link type="application/atom+xml" rel="self"
     href="http://{{ site.baseurl }}/atom.xml"/>
   <updated>{{ site.time | date_to_xmlschema }}</updated>
-  <title>www.isbullsh.it</title>
+  <title>{{page.tag}}.isbullsh.it</title>
   <id>http://{{ site.baseurl }}/</id>
 
-  {% for post in site.posts %}
+  {% for post in site.tags[page.tag] %}
   <entry>
     <id>http://{{ site.baseurl }}{{ post.id }}</id>
     <link type="text/html" rel="alternate" href="http://{{ site.baseurl }}{{ post.url }}"/>

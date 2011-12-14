@@ -6,8 +6,7 @@ end
 namespace :juicer do
   desc 'Merges stylesheets for production'
     task :css do
-      sh 'juicer merge --force _site/static/css/*.css'
-      sh 'mv _site/static/css/style.min.css _site/static/css/style.css'
+      sh 'juicer merge --force static/css/style.css static/css/syntax.css'
     end
   desc 'Merges JavaScripts'
     task :js do

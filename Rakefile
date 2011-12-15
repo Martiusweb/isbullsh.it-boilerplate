@@ -1,6 +1,6 @@
-desc 'Running Jekyll with --server --auto opition'
+desc 'Running Jekyll with --server --auto option'
 task :dev do
-  system('jekyll --server --auto')
+  system('jekyll --pygments --server --auto')
 end
 
 namespace :juicer do

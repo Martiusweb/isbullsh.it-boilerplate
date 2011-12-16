@@ -397,6 +397,7 @@ div#main > #totoc {
   bottom: 2em;
   right: 5em;
   font-weight: 700;
+  opacity: 0;
 }
 
 div#main > #totoc > a {
@@ -759,6 +760,19 @@ body > header > div > h1 > a {
 section#content > ol > li {
   list-style: none outside none;
 }
+
+/* To write a keyboard shortcut or something like that */
+code.key {
+  border: 1.5px solid gray;
+  box-shadow: -2px 2px 0px gray;
+  border-radius: 4px;
+  padding: 2px;
+}
+
+code.key:hover {
+  box-shadow: -1px 1px 0px gray;
+}
+
 /* =============================================================================
    Non-semantic helper classes
    Please define your styles before this section.

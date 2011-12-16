@@ -500,7 +500,10 @@ div#main > footer {
   text-shadow: 1px 1px #FFFFFF;
 }
 
-
+/** Prelude content */
+div#main #prelude {
+  border-bottom: 1px #CCCCCC solid;
+}
 
 /** Easter egg */
 body > p {
@@ -772,6 +775,9 @@ code.key {
 code.key:hover {
   box-shadow: -1px 1px 0px gray;
 }
+
+/* Importations */
+@import url('syntax.css');
 
 /* =============================================================================
    Non-semantic helper classes

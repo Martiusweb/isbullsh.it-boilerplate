@@ -1,4 +1,5 @@
 *.sw[op]
 *~
+static/css/*.min.css
 _site/*
 _cache/*

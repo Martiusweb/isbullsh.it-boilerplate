@@ -10,14 +10,28 @@ Current contributors are :
  - Martin Richard
  - Balthazar Rouberol
  - Thibaut Vuillemin
+ - Nicolas Silva
 
 ## TODO
 
  - On the home page, add a sidebar like in the post page with blog informations
    (like RSS feed link, etc).
  - Add pagination to the archive pages.
- - Add css/js minifier operations during build.
  - Plugin which generates rss/Atom for each tag
+
+## Minification
+
+CSS and JS can be minified using Juicer :
+
+    gem install juicer
+    juicer install jslint
+    juicer install yui_compressor
+
+Currently, minification is not yet fully automatic. Once Jekyll generated the
+static content, please run:
+
+    rake juicer:css
+    rake juicer:js
 
 ## Good practices
 

@@ -1,11 +1,16 @@
 ---
-layout: base
 layout: content
 class: list
 ---
 
+<div id="prelude">
+  <p>On this page, you will see articles written about the topic {{page.tag}},
+  but you can have a look to the <a href="/tag/">tags list page</a> to see our
+  other articles.</p>
+  <p>You can subscribe to our <a href="/tag/{{page.tag}}/rss.xml">RSS</a> or
+  <a href="/tag/{{page.tag}}/atom.xml">Atom</a> feed.</p>
+</div>
 <ol>
-  <p>Here is a list of our latest articles about {{page.tag}}.</p>
   {% for post in site.tags[page.tag] %}
   <li>
   <article><h2><a href="{{post.url}}">{{post.title}}</a></h2>

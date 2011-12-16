@@ -5,7 +5,7 @@ layout: nil
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 
   <channel>
-    <title>isbullsh.it</title>
+    <title>{{page.tag}}.isbullsh.it</title>
     <link>http://{{ site.baseurl}}/</link>
     <atom:link href="http://{{ site.baseurl }}/rss.xml" rel="self"
       type="application/rss+xml" />
@@ -14,7 +14,7 @@ layout: nil
     <pubDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S +0200" }}</pubDate>
     <lastBuildDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S +0200" }}</lastBuildDate>
 
-    {% for post in site.posts %}
+    {% for post in site.tags[page.tag] %}
     <item>
       <title>{{ post.title | xml_escape }}</title>
       <link>http://{{ site.baseurl }}{{ post.url }}</link>

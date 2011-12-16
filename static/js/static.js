@@ -46,9 +46,9 @@ function static_js() {
   function get_subdomain() {
     var re = /http:\/\/([\-a-zA-Z0-9]+)[.]isbullsh[.]it/;
     var loc = re.exec(window.location);
-    if (loc) {
-      if (loc[0] != "isbullsh") {
-        return loc[0];
+    if (loc.length > 1) {
+      if (loc[1] != "isbullsh") {
+        return loc[1];
       }
     }
     return "";
@@ -57,7 +57,7 @@ function static_js() {
   function replace_header() {
     var sub = get_subdomain();
     if (sub.length) {
-      document.querySelector("h1 > a > span").innerHTML = sub;
+      document.querySelector("span.tag").innerHTML = sub;
     }
   }
 

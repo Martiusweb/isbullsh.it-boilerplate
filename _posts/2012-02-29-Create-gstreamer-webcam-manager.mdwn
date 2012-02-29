@@ -1,0 +1,114 @@
+---
+title: Create a webcam manager using pyGTK and gstreamer
+tags:
+  - python
+from: Lyon
+byline: Balto
+layout: post
+published: true
+---
+
+- stripped
+{:toc}
+
+# Introduction
+I recently joined the [Strongsteam](http://www.strongsteam.com) project for a 6 month internship. Our main goal is to provide some _"artificial intelligence and
+data mining APIs to let you pull interesting information out of images, video and audio."_
+We will be doing a presentation at [Pycon 2012](https://us.pycon.org/2012/), the 9th of March, during the [Startup Row weekend](https://us.pycon.org/2012/community/startuprow/).  
+
+On this occasion,  I had to implement a desktop GUI allowing to display a webcam video stream and to capture snapshots, with the following constraints:
+
+ * GUI written with [wxPython](http://wxpython.org/) or [pyGTK](http://www.pygtk.org/)
+ * the webcam stream must be integrated in the wxPython/pyGTK window
+ * the webcam must not be handled with the [OpenCV](http://opencv.willowgarage.com/wiki/PythonInterface) python module (the installation can be painful on Mac OS X)
+ * the snapshots default format and resolution must be JPG and 640x480 
+
+# How to handle the webcam ?
+My first researches led me to consider two different solutions:
+
+ * using [PyGame](http://www.pygame.org), a set of python modules adding functionality on top of the [SDL](http://www.libsdl.org/) library
+ * using [Gstreamer](http://gstreamer.freedesktop.org/), a pipeline-based multimedia framework allowing _"to create a variety of media-handling components, including simple audio playback, audio and video playback, recording, streaming and editing"_ (quote: wikipedia article). Gstreamer is used by a bunch of multimedia applications, like [Cheese](https://live.gnome.org/Cheese), [Amarok](http://amarok.kde.org/), [Pitivi](http://pitivi.sourceforge.net/), ...
+ 
+I quickly turned to PyGame, because of the simplicify of the snapshot operation : all we have to do is to use the <code>pygame.camera.Camera.get_image()</code> function. Pretty simple, hm? However, the integration of the PyGame surface into a pyGTK interface turned out to be pretty complicated. I found a couple of StackOverflow posts stating that even though this integration was possible, it was not advised. Indeed, some erratic behaviours seem to be observed when using different OS. 
+
+I then considered gstreamer, and quicky found this [encouraging project](http://pygstdocs.berlios.de/pygst-tutorial/webcam-viewer.html). This code allowed to start and stop a webcam video stream : I was definitlely in the right place ! Let's roll with gstreamer.
+
+![Webcam-viewer](http://isbullsh.it/static/img/webcam-viewer.png)
+
+# Why doesn't it work with my webcam ?
+It you experience some problems with the previous code (black screen, first run successful and following run leading to black screen, ...) check if your webcam is UVC (USB Video Class) Linux supported. To do that, type in
+
+{% highlight bash %}
+$ lsusb
+{% endhighlight %}
+
+and locate the line describing your webcam. 
+
+My laptop integrated webcam was described as <code>Bus 001 Device 003: ID 05ca:1814 Ricoh Co., Ltd HD Webcam</code>. The reference <code>05ca:1814</code> doesn't appear on the [UVC](http://www.ideasonboard.org/uvc/) website. That could explain why I experienced so many problems with it. I then bought a Logitech QuickCam Pro 9000, known for being well supported, and that solved it.
+
+# How to use gstreamer ?
+If you don't know how to use gstreamer, I'd advise you to read these pages :
+
+ * [Gstreamer cheat sheet](http://wiki.oz9aec.net/index.php/Gstreamer_Cheat_Sheet)
+ * [A weekend with gstreamer](http://www.oz9aec.net/index.php/gstreamer/345-a-weekend-with-gstreamer)
+ 
+The main idea is to construct a pipeline, by connecting various data sources, sinks and processing blocks (bins) in a data flow graph. This is a simple example of gstreamer pipeline :
+![gstreamer pipeline example](http://isbullsh.it/static/img/gstreamer.png)
+
+In our case, to display the webcam stream, we are going to use the following pipeline :  
+    
+> <code>v4l2src ! video/x-raw-yuv,width=640,height=480,framerate=30/1 ! xvimagesink</code>
+
+ * <code>v4l2src</code> : Video for Linux input : your webcam (the default device is <code>/dev/video0</code>, but if you are using an external webcam, use <code>v4l2src device=/dev/video1</code>
+ * <code>video/x-raw-yuv</code> : video colorspace specific to webcam
+ * <code>width=640,height=480</code> : your webcam reolution (check that it is compatible with your webcam)
+ * <code>framerate=30/1</code> : number of frames per second
+ * <code>xvimagesink</code> : video sink
+ 
+Now, we have a live video stream displayed into a pyGTK interfaxe, but still no way of capturing a snapshot.
+ 
+# How do we capture a snapshot ?
+I encountered many StackOverflow open questions about this part, but no satisfactory answer...
+
+At first, I wanted to use gstreamer for that too, but I couldn't find any way to dynamically modify the pipeline to add a frame extraction, jpg encoding and a filesink (to save the snapshot). I thus tried this ugly hack : when the *'take snapshot'* button is clicked 
+
+ * stop the video stream
+ * start the following pipeline:  <code>v4l2src device=/dev/video1 ! video/x-raw-yuv,width=640,height=480,framerate=30/1 ! ffmpegcolorspace !  video/x-raw-rgb,framerate=1/1 ! ffmpegcolorspace ! pngenc snapshot=true ! filesink location=snap.jpg</code>, which will extract a single frame, encode it to jpg and save it to a file.
+ * stop this image pipeline
+ * re-start the video stream
+ 
+That was of course ugly, and resulted into a ~2s flicker when taking the snapshot... Back to square one.
+
+I'll save you the suspens, the right solution is to **use the gtk.DrawingArea.window.get_colormap() method**, as shown here:
+
+{% highlight python %}
+def take_snapshot(self):
+    """ Capture a snapshot from DrawingArea and save it into a image file """
+    drawable = self.movie_window.window
+    # self.movie_window is of type gtk.DrawingArea()
+    colormap = drawable.get_colormap()
+    pixbuf = gtk.gdk.Pixbuf(gtk.gdk.COLORSPACE_RGB, 0, 8, *drawable.get_size())
+    pixbuf = pixbuf.get_from_drawable(drawable, colormap, 0,0,0,0, *drawable.get_size()) 
+    pixbuf = pixbuf.scale_simple(self.W, self.H, gtk.gdk.INTERP_HYPER) # resize
+    # We resize from actual window size to wanted resolution
+    #  gtk.gdk.INTER_HYPER is the slowest and highest quality reconstruction function
+    # More info here : http://developer.gnome.org/pygtk/stable/class-gdkpixbuf.html#method-gdkpixbuf--scale-simple
+    filename = snapshot_name() + '.' + self.snap_format
+    filepath = relpath(filename)
+    pixbuf.save(filename, self.snap_format)
+{% endhighlight %}
+
+This snippet does the following operations:
+
+ * extract the last frame from the <code>gtk.DrawingArea</code>
+ * encode it to RGB
+ * resize it to 640x480
+ * save it to '<code>snap.jpg</code>'
+ 
+And that's done, without even a teeny-tiny flicker! Yay! We now have a perfecly functional snapshot operation.
+
+# Git repository
+All the code can be encountered on my [GitHub](https://github.com/BaltoRouberol/Gstreamer-webcam-tool)
+
+# Conclusion 
+![Bye!](http://www.isbullsh.it/static/img/night.jpeg)

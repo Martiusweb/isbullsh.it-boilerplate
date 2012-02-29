@@ -1,0 +1,187 @@
+---
+title: How not to be slowed down by Ubuntu 11.10 GUI and other stuff
+tags:
+  - ubuntu
+from: Stockholm
+byline: Paul
+layout: post
+published: true
+---
+
+# Main setup
+
+So yeah, I got this shiny new Lenovo X220, and I need a system to install on it.
+I'm quite lazy, these days, so I usually go for an Ubuntu, to be able to work
+instantly, and customize the system afterwards. In each Ubuntu release, I found
+the system to be more and more perfect (as a the Gnome 2 desktop three of four
+years ago was already perfect, and according to _my_ usage, and the 10.10
+release was beyond expectations, once again, for _my_ usage and _my_ hardware).
+However, having missed the 11.04 release, and installing the 11.10 (to have a
+recent packages, including a new kernel to use  my brand new Sandy Bridge at its
+full capacity), I found myself kind of _forced_ to use Unity. It lasted four
+hours, and then I began to search for an alternative. And it was four _painful_
+hours.
+
+I figured out that installing a good old Gnome 2 desktop would be quite
+impossible on the current Ubuntu (yeah, I could have gone with Debian and Gnome
+2, but it was in no way a durable solution, since maintainers will, I guess,
+shift their work towards Gnome3 applications.), so I went with Gnome 3, and its
+_fallback mode_. The mode in which you must indeed fallback after having seen
+the quality of the experience of Unity and Gnome Shell, to have real work done.
+
+Here is the sequence of commands you shall paste in your terminal to switch back
+to a decent environment:
+
+{% highlight sh %}
+sudo aptitude install gnome-session-fallback
+{% endhighlight %}
+
+Then, you can install a couple of more packages to get a bit more configuration
+options, and to try to tend to a Gnome2-like desktop.
+
+{% highlight sh %}
+sudo aptitude install compizconfig-settings-manager gnome-tweak-tool
+{% endhighlight %}
+
+To configure the panels, you have to do the highly unintuitive <code class="key">Alt</code>+right click,
+which does not work when Compiz is active, on my machine (but I guess I did
+something wrong).
+
+If, like me, you like not to have window decorations on specific windows,
+`devilspie` still works with Gnome 3. In my case, I don't like to have window
+decorations on Firefox (because it's only wasted vertical space, since it is
+always in full screen, and will never be moved or resized), `gvim`, for the same
+reason (I prefer to do the window management inside of `gvim` itself rather than
+having a multiple `gvim` windows), and `gnome-terminal` (my terminals are
+usually in full screen).
+
+{% highlight sh %}
+sudo aptitude install devilspie
+{% endhighlight %}
+
+Here are my config files for `devilspie`, each line must be put in a separate
+file under `~/.devilspie/` :
+
+{% highlight scheme %}
+(if (is (application_name) "Firefox") (undecorate))
+(if (is (application_name) "Terminal") (undecorate))
+(if (is (application_name) "Vim") (undecorate))
+{% endhighlight %}
+
+# Changing the kernel
+
+On my machines (mainly laptops, these days), I don't like to have 64-bits
+operating system, I have no use for it, and such architecture makes program use
+more RAM. Moreover, for some reason, Firefox's Javascript executions is
+[slower](http://arewefastyet.com/?view=regress&machine=9 "Arewefastyet") in
+64bits, for now.  But I currently have 8GB of ram, and I want them to be
+available, which is not possible with a regular 32-bits kernel. Fortunately, a
+solution exists, we need a PAE kernel (Physical Address Extension). The system
+will update Grub accordingly, and all you will have to do is to reboot the
+machine to enjoy your ton of memory. Keep in mind that a process will be able to
+allocate _only_ 4GB of RAM, and that you can't have more than 64GB of total RAM
+in your system. I find these limitations acceptable for a laptop, though.
+
+{% highlight sh %}
+ sudo aptitude install linux-image-generic-pae
+{% endhighlight %}
+
+After a quick reboot, choose the relevant entry in the Grub (hint: it finishes
+with `-pae`), and enjoy your megaton of ram. People will argue that 8GB of RAM
+is useless for a Vim user (_i.e._ if you don't do Java with Eclipse or other IDE
+friendly stuff), but I mainly benefit from my RAM by using it for disk caches.
+You can think of it as a cheap SSD. Usually, the working set of what I work on
+does not exceeds 6GB (and we are talking about a Firefox tree). The boost is
+appreciable when you do IO intensive stuff like invoking `ack` or `find` on a
+whole tree. Empirically, the first invocation is slow as hell (normal, I would
+say), the subsequent are instantaneous (once again, we are talking about
+`mozilla-central`, which is _huge_).
+
+Additionally,  a huge bonus is the fact that you can spin off comfortable
+virtual machine to test stuff.
+
+# Pseudo tiling window manager and other goodies
+
+I like Gnome, but I also like the _idea_ of tiling windows manager. A Compiz
+extension, __Grid__, brings a simplistic tiling capability to your gnome. For my
+setup, I have mapped several function of this plugin to hotkeys :
+
+- <code class="key">Ctrl</code>+<code class="key">Alt</code>+<code class="key">h</code> → Tile to left, half of the screen
+- <code class="key">Ctrl</code>+<code class="key">Alt</code>+<code class="key">j</code> → Maximise
+- <code class="key">Ctrl</code>+<code class="key">Alt</code>+<code class="key">k</code> → Unmaximize
+- <code class="key">Ctrl</code>+<code class="key">Alt</code>+<code class="key">l</code> → Tile to the right, half of the screen
+
+This way, combined with the virtual desktops (with 8 desktops), I can
+efficiently switch between my windows using a combination of <code
+class="key">Alt</code>+<code class="key">tab</code>, <code
+class="key">Ctrl</code>+<code class="key">Alt</code>+`{h,j,k,l}` and <code
+class="key">super</code>+`{↑, ↓, ←, →}` to change desktop.  Additionally, I use
+<code class="key">Super</code>+`{h,j}` or the more classical <code class="key">Alt</code>+<code
+class="key">Tab</code> and <code class="key">Alt</code>+<code
+class="key">Shift</code>+<code class="key">Tab</code> to switch between windows.
+This setup is clearly inspired by the default bindings of the Awesome windows
+manager, which is indeed awesome, but (in my opinion), lacks the polishing done
+by the Gnome developers to their software. In the same Awesome spirit,
+<code class="key">super</code>+`[1-8]` can directly change focus to a desktop, and <code class="key">Super</code>+<code class="key">Shift</code>+`[1-8]`
+put the active window on that desktop.  The idea here is to have each type on
+window in a particular virtual desktop :
+
+- Browser and twitter on desktop 1
+- IM, Thunderbird, IRC on the desktop below (5)
+- Code on desktop 2, with terminal to compile
+- Terminal to run the program on desktop 6, below the code
+- Various terminals an files on desktop 3, 7
+- Music on desktop 8
+
+That way, if I want to read something in Firefox, I can type <code class="key">Super</code>+<code class="key">1</code>, and I'm
+done. No need to fiddle around using an _O(n)_ access mechanism (the common «
+Alt-Tab only » behavior that I horrifies me when I happen to do something on
+Windows) when you can easily have an hashmap (virtual desktops are buckets,
+windows are elements), which provides effectively an _O(1)_ access. You can
+argue that this is suboptimal, since there is intended collision, but 99% of the
+time, my browser is on the top, and I can switch seamlessy between code and
+documentation.
+
+This setup, associated with the awesome Thinkpad red thingy pointer in the
+middle of the screen, provides a setup where my hand are rarely leaving the
+keyboard. More over, it harmonizes the keyboard shortcuts among the applications
+: <code class="key">j</code> and <code class="key">k</code>, numbers above the
+keyboard, <code class="key">Ctrl</code>+<code class="key">Page up/down</code>
+are doing a similar thing in every application.
+
+The lock screen shortcut is remapped to <code class="key">Super</code>+<code
+class="key">escape</code>. I can't provide a reason why, but it works.
+
+# Touchpad management
+
+To get the best of your pointing devices, make sure to install `gsynaptics` :
+
+{% highlight sh %}
+sudo aptitude install gsynaptics
+{% endhighlight %}
+
+Then, you can run the graphical interface using the `gpointing-device-settings`
+command.
+
+This allow palm detection, to avoid moving the mouse while typing (and proves
+itself very efficient compared to the default settings), and several other
+goodies. However, I find myself mainly using the trackpoint of my computer, these days.
+
+# Software at startup
+
+Finding which software is launched at startup is for some reason more difficult
+that in previous releases, so I ended up typing `gnome-session-properties` in a
+terminal to bring the appropriate window.
+
+I put `devilspie`, `redshift` there.
+
+# Misc.
+
+Then, some of my scripts are using `xclip`, to retrieve and store the content of
+the copy/paste buffer. This is not installed by default on the 11.10 and is very
+useful to provide a good command-line integration in the system.
+
+{% highlight sh %}
+sudo aptitude install xclip
+{% endhighlight %}
+

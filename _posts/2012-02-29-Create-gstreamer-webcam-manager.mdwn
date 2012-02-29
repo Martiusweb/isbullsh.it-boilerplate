@@ -21,7 +21,7 @@ On this occasion,  I had to implement a desktop GUI allowing to display a webcam
  * GUI written with [wxPython](http://wxpython.org/) or [pyGTK](http://www.pygtk.org/)
  * the webcam stream must be integrated in the wxPython/pyGTK window
  * the webcam must not be handled with the [OpenCV](http://opencv.willowgarage.com/wiki/PythonInterface) python module (the installation can be painful on Mac OS X)
- * the snapshots default format and resolution must be JPG and 640x480 
+ * the snapshots default format and resolution must be JPG and 640x480px
 
 # How to handle the webcam ?
 My first researches led me to consider two different solutions:
@@ -73,7 +73,7 @@ I encountered many StackOverflow open questions about this part, but no satisfac
 At first, I wanted to use gstreamer for that too, but I couldn't find any way to dynamically modify the pipeline to add a frame extraction, jpg encoding and a filesink (to save the snapshot). I thus tried this ugly hack : when the *'take snapshot'* button is clicked 
 
  * stop the video stream
- * start the following pipeline:  <code>v4l2src device=/dev/video1 ! video/x-raw-yuv,width=640,height=480,framerate=30/1 ! ffmpegcolorspace !  video/x-raw-rgb,framerate=1/1 ! ffmpegcolorspace ! pngenc snapshot=true ! filesink location=snap.jpg</code>, which will extract a single frame, encode it to jpg and save it to a file.
+ * start the following pipeline:  <code>v4l2src device=/dev/video1 ! video/x-raw-yuv,width=640,height=480,framerate=30/1 ! ffmpegcolorspace !  video/x-raw-rgb,framerate=1/1 ! ffmpegcolorspace ! jpegenc snapshot=true ! filesink location=snap.jpeg</code>, which will extract a single frame, encode it to jpg and save it to a file.
  * stop this image pipeline
  * re-start the video stream
  
@@ -102,7 +102,7 @@ This snippet does the following operations:
 
  * extract the last frame from the <code>gtk.DrawingArea</code>
  * encode it to RGB
- * resize it to 640x480
+ * resize it to 640x480px
  * save it to '<code>snap.jpg</code>'
  
 And that's done, without even a teeny-tiny flicker! Yay! We now have a perfecly functional snapshot operation.
